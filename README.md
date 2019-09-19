@@ -4,7 +4,9 @@
 ``npm i docsify-cli -g``
 
 ### Preview your site
-``docsify serve docs``
+Get into the root of the site and run this command to start editing and live previewing
+
+``docsify serve``
 
 ## Customize your site
 
