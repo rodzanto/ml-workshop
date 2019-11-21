@@ -1,5 +1,8 @@
 ## Setup environment
 
+### Clone this repo and delete the .git foder
+git clone https://github.com/rasensio/aws-workshop.git MY_WORKSHOP
+
 ### Install docsify 
 ``npm i docsify-cli -g``
 
@@ -14,7 +17,7 @@ You will modify this basic pages to get started. After that you'll start writing
 
 ### index.html
 * Change the <title></title> attribute with your workshop name
-* In the window.$docsify initialization script , modify the name attribute for your workshop name
+* In the window.$docsify initialization script , modify the name attribute for your workshop name, editInGithubUrl and github repo
 
 ### _coverpage.md
 
