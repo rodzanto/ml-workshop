@@ -1,7 +1,7 @@
 ## Setup environment
 
 ### Clone this repo and delete the .git foder
-git clone https://github.com/rasensio/aws-workshop.git MY_WORKSHOP
+``git clone https://github.com/rasensio/aws-workshop.git MY_WORKSHOP``
 
 ### Install docsify 
 ``npm i docsify-cli -g``
@@ -16,8 +16,8 @@ Get into the root of the site and run this command to start editing and live pre
 You will modify this basic pages to get started. After that you'll start writing your doc
 
 ### index.html
-* Change the <title></title> attribute with your workshop name
-* In the window.$docsify initialization script , modify the name attribute for your workshop name, editInGithubUrl and github repo
+* Change the ``<title></title>`` attribute with your workshop name
+* In the window.$docsify initialization script , modify the ``name`` attribute for your workshop name, ``editInGithubUrl`` and github ``repo``
 
 ### _coverpage.md
 
@@ -39,12 +39,12 @@ This is where the left sidebar content is written. You will revisit this page a 
 
 Each section should have this format
 
-``
+```
 - Excersise #1
 
   - [Do step C](2-excersice-1/1-stepC.md)
   - [Do step D](2-excersice-1/2-stepD.md)
-``
+```
 
 ### init.md
 * Change the title
