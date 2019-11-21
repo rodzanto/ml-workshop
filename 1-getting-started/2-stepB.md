@@ -25,3 +25,4 @@ Some text here and a code sample below
 ```bash
 sudo yum -y install jq gettext
 ```
+

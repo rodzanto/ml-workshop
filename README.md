@@ -1,5 +1,9 @@
 ## Setup environment
 
+### Install Node & NPM if you don't have it
+
+https://nodejs.org/en/
+
 ### Clone this repo and delete the .git foder
 ``git clone https://github.com/rasensio/aws-workshop.git MY_WORKSHOP``
 

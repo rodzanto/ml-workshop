@@ -10,3 +10,4 @@
 * Confirm that AdministratorAccess is checked, then click Next to Tags.
 * Just click Next to review.
 * Enter mskworkshop-admin for the Name, and select Create Role
+
