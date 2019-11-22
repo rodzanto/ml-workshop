@@ -57,3 +57,13 @@ Each section should have this format
 ## Add pages
 Your pages structure will be under ``1-getting-started`` where you will put your content for the workshop.
 
+## Amplify deployment
+
+### Add redirects
+
+Source: `/<*>.md`
+Target: `/<*>.md`
+
+Source: `</^[^.]+$|\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>`
+Target: `/index.html`
+
