@@ -1,5 +1,7 @@
 # Machine Learning & Artificial Intelligence
 
+Welcome fellow data-science builder.
+
 ### Choose your own adventure
 
 ![image](_media/levels.png)
