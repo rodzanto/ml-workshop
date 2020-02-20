@@ -2,7 +2,7 @@
 
 ### Choose your own adventure
 
-![image](_media/level.png)
+![image](_media/levels.png)
 
 Whether you are a beginner ML enthusiast, an experienced ML practitioner, a data-science wizard, or a truly ML/AI ninja, in this workshop you can choose the labs that best suits your level for experimenting with the many AWS ML/AI services and features available.
 
