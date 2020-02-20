@@ -1,12 +1,12 @@
 # Machine Learning & Artificial Intelligence
 
-Welcome, fellow data-science builder.
+Welcome, fellow data-science builder...
 
 ### Choose your own adventure
 
 ![image](_media/levels.png)
 
-Whether you are a beginner ML enthusiast, an experienced ML practitioner, a data-science wizard, or a truly ML/AI ninja, in this workshop you can choose the labs that best suits your level for experimenting with the many AWS ML/AI services and features available.
+Whether you are a beginner ML enthusiast, an experienced ML practitioner, a data-science wizard, or a truly ML/AI ninja, **in this workshop you can choose the labs that best suits your level** for experimenting with the many ML/AI services and features available in AWS.
 
 ### CPP Feb 24th 2020 - List of available labs:
 
