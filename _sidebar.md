@@ -11,6 +11,8 @@
   - [**Lab #3: Deploy your ML workflows in production with AWS**](machine-learning/3-overview.md)
     - [MLOps workshop](machine-learning/sagemaker-mlops/1-step.md)
     - [Workflow with Data Science SDK](machine-learning/data-science-sdk-workflow/1-step.md)
+    - [Serverless AI workshop](machine-learning/serverless-ai/1-step.md)
+    - [SageMaker Airflow workshop](machine-learning/sagemaker-airflow/1-step.md)
 
 - Artificial Intelligence
 
