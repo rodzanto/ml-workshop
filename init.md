@@ -37,3 +37,9 @@ Choose one of the labs below using the side bar on the left, and follow the inst
 
 |                     Lab                    |   Level  |                      Services/Features Involved                      | Estimated Time |
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------:|:--------------:|
+| Rekognition video analyzer                   | Medium | * Rekognition Object Detection       |                |
+| Rekognition Custom Labels                   | Medium | * Rekognition Custom Labels       |                |
+| Rekognition powered Twitter bot                   | Beginner | * Rekognition Face Detection       |                |
+| Textract and Comprehend for documents analysis                   | Beginner | * Textract Text Extraction * Comprehend Entity Detection       |                |
+| Polly podcast                   | Beginner | * Polly Text-to-speech      |                |
+| Basic Lex bot                   | Beginner | * Lex Chatbot       |                |
