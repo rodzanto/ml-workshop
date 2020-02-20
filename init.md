@@ -2,6 +2,10 @@
 
 Welcome, fellow data-science builder...
 
+![image](_media/ninja.png)
+
+...it is time to practice your machine learning skills.
+
 ### Choose your own adventure
 
 ![image](_media/levels.png)
