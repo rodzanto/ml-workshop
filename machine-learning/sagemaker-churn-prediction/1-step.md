@@ -1,15 +1,7 @@
-# Step A
+# Churn prediction with SageMaker
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+In the world of business, _customer churn_ refers to when a customer stops doing business with a company. Thus, it would be nice for a company to be able to predict it and take action before it happens. In this lab you will build, train and deploy a model based on the XGBoost algorithm that will be used to predict customer churn.
 
-## 1. This is the first section
+XGBoost is a popular framework used to perform [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting), which is a supervised learning algorithm for regression and classification. SageMaker comes with a built-in implementation of XGBoost ready for you to use.
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
-
-![screenshot](img/create-role.png)
-
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/sirimuppala/customer-churn-prediction-amazon-sagemaker-workshop)
