@@ -1,18 +1,19 @@
 # Machine Learning & Artificial Intelligence
-
+<p align="center">
 Welcome, fellow data-science builder...
-
-![image](_media/ninja.png)
-
+<br>
+    <img src="_media/ninja.png" alt="" width="180"/>
+<br>
 ...it is time to practice your machine learning skills.
+</p>
 
-### Choose your own adventure
+#### Choose your own adventure
 
 ![image](_media/levels.png)
 
 Whether you are a beginner ML enthusiast, an experienced ML practitioner, a data-science wizard, or a truly ML/AI ninja, **in this workshop you can choose the labs that best suits your level** for experimenting with the many ML/AI services and features available in AWS.
 
-### CPP Feb 24th 2020 - List of available labs:
+#### CPP Feb 24th 2020 - List of available labs:
 
 **Lab #1: Build, Train, and Deploy with Amazon SageMaker**
 
