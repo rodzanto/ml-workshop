@@ -3,7 +3,7 @@
 - Machine Learning
 
   - [**Lab #1: Build, Train, and Deploy with Amazon SageMaker**](machine-learning/1-overview.md)
-    - [Intro SageMaker workshop](machine-learning/sagemaker-intro/1-step.md)
+    - [SageMaker introductory workshop](machine-learning/sagemaker-intro/1-step.md)
     - [Churn prediction with SageMaker](machine-learning/sagemaker-churn-prediction/1-step.md)
     - [SageMaker debug and monitor](machine-learning/sagemaker-debug-monitor/1-step.md)
     - [SageMaker multi-model](machine-learning/sagemaker-multi-model/1-step.md)

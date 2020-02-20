@@ -1,15 +1,14 @@
-# Step A
+# SageMaker introductory workshop
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+In this introductory workshop you will get to know SageMaker and learn to do the following:
 
-## 1. This is the first section
+* Create a notebook instance.
+* Play around with sample Jupyter notebooks and the SageMaker SDK.
+* Explore data sets.
+* Create training jobs.
+* Deploy your models into hosted endpoints.
+* Bring your custom algorithms.
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
+![architecture diagram](arch.png)
 
-![screenshot](img/create-role.png)
-
+[![go to lab](../../_media/go-to-lab.png)](https://sagemaker-workshop.com/)
