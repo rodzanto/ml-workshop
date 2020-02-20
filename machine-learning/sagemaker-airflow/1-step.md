@@ -1,15 +1,11 @@
-# Step A
+# Sagemaker Airflow workshop
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+On this workshop you will build, manage and orchestrate Machine Learning workflows using [Amazon Sagemaker](https://aws.amazon.com/sagemaker/) and [Apache Airflow](https://airflow.apache.org/), leveraging Sagemaker operators for Airflow.
 
-## 1. This is the first section
+You will build a recommender system to predict a customer's rating for a certain video based on customer's historical ratings of similar videos as well as the behavior of other similar customers. You'll use historical star ratings from over 2M Amazon customers on over 160K digital videos, taken from the [AWS Public Datasets page](https://s3.amazonaws.com/amazon-reviews-pds/readme.html).
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
+Here is the high-level depiction of the ML workflow you will implement for building the recommender system:
 
-![screenshot](img/create-role.png)
+![architecture diagram](arch.png)
 
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/aws-samples/sagemaker-ml-workflow-with-apache-airflow)

@@ -1,15 +1,12 @@
-# Step A
+# Serverless AI workshop
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+This workshop demonstrates two methods of machine learning inference for globally-scalable production using [AWS Lambda](https://aws.amazon.com/lambda/) and [Amazon SageMaker](https://aws.amazon.com/sagemaker/).
 
-## 1. This is the first section
+[Scikit-learn](https://scikit-learn.org/) is a popular Python machine learning library that covers most aspects of shallow learning. With these techniques the library module and your custom inference code can be combined into a flexible package for immediate cloud deployment.
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
+The workshop is comprised by two different labs:
 
-![screenshot](img/create-role.png)
+1. **Lambda and SciKit Learn Inference:** develop a simple sentiment analysis model using scikit learn's build-in linear regression algorithm
+2. **SageMaker Batch Transform:** use the MNIST dataset to create a predictive model using SageMaker's K-Means built-in algorithm. After the model is trained, Sagemaker's batch transform job will be created and called from a Lambda function for inference.
 
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/aws-samples/serverless-ai-workshop)

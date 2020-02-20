@@ -1,15 +1,14 @@
-# Step A
+# MLOps workshop
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+In this workshop you'll implement and experiment a basic MLOps process, supported by an automated infrastructure for training/testing/deploying/integrating ML Models.
 
-## 1. This is the first section
+It is comprised by four parts:
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
+1. You'll start with a WarmUp, for reviewing the basic features of Amazon Sagemaker
+2. Then you will create a basic Docker Image for supporting any scikit-learn model
+3. Then you will create a dispatcher Docker Image that supports two different algorithms
+4. Finally you will train the models, deploy them into a DEV environment, approve and deploy them into a PRD environment with High Availability and elasticity
 
-![screenshot](img/create-role.png)
+![architecture diagram](arch.jpg)
 
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/awslabs/amazon-sagemaker-mlops-workshop)
