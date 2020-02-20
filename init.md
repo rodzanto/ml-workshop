@@ -12,13 +12,14 @@ Whether you are a beginner ML enthusiast, an experienced ML practitioner, a data
 
 Choose one of the labs above, and follow the instructions provided...
 
-|                     Lab                    |   Level  |                      Services/Features Involved                      | Estimated Time |
-|:------------------------------------------:|:--------:|:--------------------------------------------------------------------:|:--------------:|
-| Intro SageMaker workshop                   | Beginner |    SageMaker Notebook SageMaker SDK SageMaker Built-in Algorithms    |                |
-| Churn prediction with SageMaker            | Beginner |    SageMaker Notebook SageMaker SDK SageMaker Built-in Algorithms    |                |
-| SageMaker debugger & model monitor         |  Medium  |                 SageMaker Debugger SageMaker Monitor                 |                |
-| SageMaker multi-model endpoints monitoring |  Medium  | SageMaker Debugger SageMaker Monitor SageMaker Multi-model Endpoints |                |
-| SageMaker HPO, autopilot, and experiments  |  Medium  | SageMaker Auto-HPO SageMaker Autopilot SageMaker Experiments         |                |
+|                     Lab                    |   Level  |                         Services/Features Involved                         | Estimated Time |
+|:------------------------------------------:|:--------:|:--------------------------------------------------------------------------:|:--------------:|
+| Intro SageMaker workshop                   | Beginner | * SageMaker Notebook * SageMaker SDK * SageMaker Built-in Algorithms       |                |
+| Churn prediction with SageMaker            | Beginner | * SageMaker Notebook * SageMaker SDK * SageMaker Built-in Algorithms       |                |
+| SageMaker debugger & model monitor         |  Medium  | * SageMaker Debugger * SageMaker Monitor                                   |                |
+| SageMaker multi-model endpoints monitoring |  Medium  | * SageMaker Debugger * SageMaker Monitor * SageMaker Multi-model Endpoints |                |
+| SageMaker HPO, autopilot, and experiments  |  Medium  | * SageMaker Auto-HPO * SageMaker Autopilot * SageMaker Experiments         |                |
+
 
 **Lab #2: Explore the AWS Artificial Intelligence Services**
 
@@ -26,6 +27,7 @@ Choose one of the labs below, and follow the instructions provided...
 
 |                     Lab                    |   Level  |                      Services/Features Involved                      | Estimated Time |
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------:|:--------------:|
+
 
 **Lab #3: Deploy your ML workflows in production with AWS**
 
