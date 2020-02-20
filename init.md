@@ -10,7 +10,7 @@ Whether you are a beginner ML enthusiast, an experienced ML practitioner, a data
 
 **Lab #1: Build, Train, and Deploy with Amazon SageMaker**
 
-Choose one of the labs above, and follow the instructions provided...
+Choose one of the labs below using the side bar on the left, and follow the instructions provided...
 
 |                     Lab                    |   Level  |                         Services/Features Involved                         | Estimated Time |
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------------:|:--------------:|
@@ -23,7 +23,7 @@ Choose one of the labs above, and follow the instructions provided...
 
 **Lab #2: Explore the AWS Artificial Intelligence Services**
 
-Choose one of the labs below, and follow the instructions provided...
+Choose one of the labs below using the side bar on the left, and follow the instructions provided...
 
 |                     Lab                    |   Level  |                      Services/Features Involved                      | Estimated Time |
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------:|:--------------:|
@@ -31,7 +31,7 @@ Choose one of the labs below, and follow the instructions provided...
 
 **Lab #3: Deploy your ML workflows in production with AWS**
 
-Choose one of the labs below, and follow the instructions provided...
+Choose one of the labs below using the side bar on the left, and follow the instructions provided...
 
 |                     Lab                    |   Level  |                      Services/Features Involved                      | Estimated Time |
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------:|:--------------:|
