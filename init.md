@@ -34,6 +34,13 @@ Choose one of the labs below using the side bar on the left, and follow the inst
 
 |                     Lab                    |   Level  |                      Services/Features Involved                      | Estimated Time |
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------:|:--------------:|
+| Rekognition video analyzer                   | Medium | * Rekognition Object Detection       |                |
+| Rekognition Custom Labels                   | Medium | * Rekognition Custom Labels       |                |
+| Rekognition powered Twitter bot                   | Beginner | * Rekognition Face Detection       |                |
+| Textract and Comprehend for documents analysis                   | Beginner | * Textract Text Extraction * Comprehend Entity Detection       |                |
+| Polly podcast                   | Beginner | * Polly Text-to-speech      |                |
+| Basic Lex bot                   | Beginner | * Lex Chatbot       |                |
+
 
 
 **Lab #3: Deploy your ML workflows in production with AWS**
@@ -42,9 +49,7 @@ Choose one of the labs below using the side bar on the left, and follow the inst
 
 |                     Lab                    |   Level  |                      Services/Features Involved                      | Estimated Time |
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------:|:--------------:|
-| Rekognition video analyzer                   | Medium | * Rekognition Object Detection       |                |
-| Rekognition Custom Labels                   | Medium | * Rekognition Custom Labels       |                |
-| Rekognition powered Twitter bot                   | Beginner | * Rekognition Face Detection       |                |
-| Textract and Comprehend for documents analysis                   | Beginner | * Textract Text Extraction * Comprehend Entity Detection       |                |
-| Polly podcast                   | Beginner | * Polly Text-to-speech      |                |
-| Basic Lex bot                   | Beginner | * Lex Chatbot       |                |
+| MLOps workshop                             | Medium   | * SageMaker SDK * ECR * CodeCommit + CodePipeline + CodeBuild        |                |
+| Workflow with Data Science SDK             | Medium   | * SageMaker SDK * StepFunctions * Data Science SDK                   |                |
+| Serverless AI workshop                     | Advanced | * SageMaker Notebook * Sagemaker Batch Transform * Lambda            |                |
+| Sagemaker Airflow workshop                 | Advanced | * SageMaker Notebook * Sagemaker Batch Transform * Apache Airflow    |                |
