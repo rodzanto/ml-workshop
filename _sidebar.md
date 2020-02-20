@@ -17,7 +17,12 @@
 - Artificial Intelligence
 
   - [**Lab #2: Explore the AWS Artificial Intelligence Services**](artificial-intelligence/2-overview.md)
-    - [Amazon Rekognition](artificial-intelligence/rekognition/1-step.md)
-    - [Amazon Comprehend](artificial-intelligence/comprehend/1-step.md)
+    - [Rekognition Video Analyzer](artificial-intelligence/rekognition-video/1-step.md)
+    - [Rekognition Custom Labels](artificial-intelligence/rekognition-custom-labels/1-step.md)
+    - [Rekognition powered Twitter bot](artificial-intelligence/rekognition-twitter/1-step.md)
+    - [Textract and Comprehend for documents analysis](artificial-intelligence/textract-comprehend-documents/1-step.md)
+    - [Polly podcast](artificial-intelligence/polly-podcast/1-step.md)
+    - [Basic Lex bot](artificial-intelligence/lex-bot/1-step.md)
+
 
 - [Changelog](changelog.md)
