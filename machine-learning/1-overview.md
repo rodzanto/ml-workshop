@@ -1,6 +1,3 @@
-# Lab #1: Built and Train with Amazon SageMaker
+# Lab #1: Build, Train, and Deploy with Amazon SageMaker**
 
-Choose one of the following options for running and introduction laboratory to Amazon SageMaker:
-
-- Intro SageMaker Workshop (Level: Intro - Features: SageMaker notebook, SDK)
-
+The objective of this lab is getting familiar with the Amazon SageMaker service, and its different features available around the buil, train, and deploy process for the machine learning projects.

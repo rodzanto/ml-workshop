@@ -1,6 +1,3 @@
-# Lab #1: Built and Train with Amazon SageMaker
+# Lab #2: Explore the AWS Artificial Intelligence Services
 
-Choose one of the following options for running and introduction laboratory to Amazon SageMaker:
-
-- Intro SageMaker Workshop (Level: Intro - Features: SageMaker notebook, SDK)
-
+The objectives of this lab are learning how to use the AWS artificial intelligence services via APIs/SDK/CLI or the console, and how to integrate those into your applications.

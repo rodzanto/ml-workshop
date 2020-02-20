@@ -1,6 +1,6 @@
 # Machine Learning & Artificial Intelligence
 
-Welcome fellow data-science builder.
+Welcome, fellow data-science builder.
 
 ### Choose your own adventure
 
