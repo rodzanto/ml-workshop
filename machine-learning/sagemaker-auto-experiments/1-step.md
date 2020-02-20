@@ -1,15 +1,7 @@
-# Step A
+# SageMaker Autopilot and SageMaker Experiments
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+Autopilot is a SageMaker feature that automatically trains and tunes the best machine learning models for classification or regression based on your data, while allowing you to maintain full control and visibility.
 
-## 1. This is the first section
+You provide a tabular dataset and select the target column to predict, which can be a number (regression) or a category (classification). Autopilot will then analyze and explore different solutions to find the best model, which can be deployed with a single click or further improved manually.
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
-
-![screenshot](img/create-role.png)
-
+[![go to lab](../../_media/go-to-lab.png)](https://gitlab.com/juliensimon/aim361)
