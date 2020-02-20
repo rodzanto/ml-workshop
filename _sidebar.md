@@ -6,7 +6,7 @@
     - [SageMaker introductory workshop](machine-learning/sagemaker-intro/1-step.md)
     - [Churn prediction with SageMaker](machine-learning/sagemaker-churn-prediction/1-step.md)
     - [Debugging and monitoring SageMaker models](machine-learning/sagemaker-debug-monitor/1-step.md)
-    - [SageMaker multi-model](machine-learning/sagemaker-multi-model/1-step.md)
+    - [SageMaker multi-model endpoints](machine-learning/sagemaker-multi-model/1-step.md)
     - [SageMaker autopilot and experiments](machine-learning/sagemaker-auto-experiments/1-step.md)
   - [**Lab #3: Deploy your ML workflows in production with AWS**](machine-learning/3-overview.md)
     - [MLOps workshop](machine-learning/sagemaker-mlops/1-step.md)

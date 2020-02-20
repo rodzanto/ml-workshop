@@ -1,15 +1,7 @@
-# Step A
+# SageMaker multi-model endpoints
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+The [SageMaker multi-model endpoints capability](https://docs.aws.amazon.com/sagemaker/latest/dg/multi-model-endpoints.html) allows you to host multiple models in a single endpoint, using the same inference container. This can tanslate into significant cost savings and better resource utilization.
 
-## 1. This is the first section
+In this lab you will learn how to do this by hosting two recommendation models based on XGBoost, one for movies and one for music.
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
-
-![screenshot](img/create-role.png)
-
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/sirimuppala/amazon-sagemaker-multi-model-endpoints-model-monitoring)
