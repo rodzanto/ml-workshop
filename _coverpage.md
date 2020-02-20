@@ -1,11 +1,11 @@
 ![logo](_media/logo256.png)
 
-# ABC Workshop <small>0.1</small>
+# Machine Learning & Artificial Intelligence Workshop <small>0.1</small>
 
-> A magical workshop.
+> A set of hands-on labs for running during AWS ML/AI workshops.
 
-- Simple labs that fits all levels
-- Written with love
+- Independent labs covering different ML/AI services & features.
+- AWS Solutions Architecture - 2020
 
 [Get Started](init.md)
 
