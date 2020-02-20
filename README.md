@@ -1,3 +1,5 @@
 # Machine Learning & Aritificial Intelligence hands-on labs
-## for running during AWS ML/AI workshops
+## For running during AWS ML/AI workshops
+
+Main workshop: ml.aws-iberia.cloud
 
