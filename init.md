@@ -23,9 +23,9 @@ Choose one of the labs below using the side bar on the left, and follow the inst
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------------:|:--------------:|
 | Intro SageMaker workshop                   | Beginner | * SageMaker Notebook * SageMaker SDK * SageMaker Built-in Algorithms       |                |
 | Churn prediction with SageMaker            | Beginner | * SageMaker Notebook * SageMaker SDK * SageMaker Built-in Algorithms       |                |
-| SageMaker debugger & model monitor         |  Medium  | * SageMaker Debugger * SageMaker Monitor                                   |                |
-| SageMaker multi-model endpoints monitoring |  Medium  | * SageMaker Debugger * SageMaker Monitor * SageMaker Multi-model Endpoints |                |
-| SageMaker HPO, autopilot, and experiments  |  Medium  | * SageMaker Auto-HPO * SageMaker Autopilot * SageMaker Experiments         |                |
+| SageMaker debugger & model monitor         |  Advanced  | * SageMaker Debugger * SageMaker Monitor                                   |                |
+| SageMaker multi-model endpoints monitoring |  Advanced  | * SageMaker Debugger * SageMaker Monitor * SageMaker Multi-model Endpoints |                |
+| SageMaker HPO, autopilot, and experiments  |  Intermediate  | * SageMaker Auto-HPO * SageMaker Autopilot * SageMaker Experiments         |                |
 
 
 **Lab #2: Explore the AWS Artificial Intelligence Services**
@@ -34,12 +34,12 @@ Choose one of the labs below using the side bar on the left, and follow the inst
 
 |                     Lab                    |   Level  |                      Services/Features Involved                      | Estimated Time |
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------:|:--------------:|
-| Rekognition video analyzer                   | Medium | * Rekognition Object Detection       |                |
-| Rekognition Custom Labels                   | Medium | * Rekognition Custom Labels       |                |
-| Rekognition powered Twitter bot                   | Beginner | * Rekognition Face Detection       |                |
-| Textract and Comprehend for documents analysis                   | Beginner | * Textract Text Extraction * Comprehend Entity Detection       |                |
+| Rekognition video analyzer                   | Intermediate | * Rekognition Object Detection       |                |
+| Rekognition Custom Labels                   | Beginner & Advanced | * Rekognition Custom Labels       |                |
+| Rekognition powered Twitter bot                   | Intermedite | * Rekognition Face Detection       |                |
+| Textract and Comprehend for documents analysis                   | Intermedite | * Textract Text Extraction * Comprehend Entity Detection * Elasticsearch indexing      |                |
 | Polly podcast                   | Beginner | * Polly Text-to-speech      |                |
-| Basic Lex bot                   | Beginner | * Lex Chatbot       |                |
+| Basic Lex bot                   | Intermediate | * Lex Chatbot       |                |
 
 
 
@@ -49,7 +49,7 @@ Choose one of the labs below using the side bar on the left, and follow the inst
 
 |                     Lab                    |   Level  |                      Services/Features Involved                      | Estimated Time |
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------:|:--------------:|
-| MLOps workshop                             | Medium   | * SageMaker SDK * ECR * CodeCommit + CodePipeline + CodeBuild        |                |
-| Workflow with Data Science SDK             | Medium   | * SageMaker SDK * StepFunctions * Data Science SDK                   |                |
+| MLOps workshop                             | Intermediate   | * SageMaker SDK * ECR * CodeCommit + CodePipeline + CodeBuild        |                |
+| Workflow with Data Science SDK             | Intermediate   | * SageMaker SDK * StepFunctions * Data Science SDK                   |                |
 | Serverless AI workshop                     | Advanced | * SageMaker Notebook * Sagemaker Batch Transform * Lambda            |                |
 | Sagemaker Airflow workshop                 | Advanced | * SageMaker Notebook * Sagemaker Batch Transform * Apache Airflow    |                |

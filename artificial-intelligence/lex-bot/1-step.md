@@ -1,15 +1,9 @@
-# Step A
+# Basic Lex bot
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+In this lab you will learn how to use the Sample Amazon Lex Web Interface, a chatbot UI that can be integrated with a website for interacting via text or voice.
 
-## 1. This is the first section
+<img src="https://github.com/aws-samples/aws-lex-web-ui/raw/master/img/webapp-full.gif" alt="drawing" width="600"/>
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
+The lab includes a sample Cloud Formation stack that creates the resources needed for using the chatbot. You can then adjust the sample configuration for adapting the bot to your needs, or integrating with your own applications.
 
-![screenshot](img/create-role.png)
-
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/aws-samples/aws-lex-web-ui)
