@@ -1,15 +1,11 @@
-# Step A
+# Polly podcast
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+In this introductory lab you will learn how to connect [Amazon Polly](https://aws.amazon.com/polly/) with a RSS feed, so you can listen to your favorite blogs instead of reading them.
 
-## 1. This is the first section
+The main steps involved will be:
+* Setting up an Amazon S3 bucket.
+* Create an AWS Lambda function to use it for calling Amazon Polly.
+* Setup an Amazon CloudWatch event for triggering the Lambda.
+* Test your demo with a RSS feed.
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
-
-![screenshot](img/create-role.png)
-
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/aws-samples/amazon-polly-sample)

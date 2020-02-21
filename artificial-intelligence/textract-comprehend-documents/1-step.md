@@ -1,15 +1,16 @@
-# Step A
+# Textract and Comprehend for documents analysis
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+In this lab, you will learn how to get text and data from documents with Amazon Textract, analyze entities on these with Amazon Comprehend, and indexing the documents for further search with Amazon Elasticseach.
 
-## 1. This is the first section
+For this exercise you will work with the **Apollo 11 and Apollo 13 flight journals**, the two well-known travels to the moon.
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
+![Apollo](https://github.com/aws-samples/workshop-textract-comprehend-es/raw/master/images/buzz_on_the_moon.jpg)
 
-![screenshot](img/create-role.png)
+The main steps involved will be:
+* Setup the environment.
+* Setup the Lambda for calling the Textract API.
+* Extract the entities with Comprehend.
+* Index the documents with Elasticsearch.
+* Cleanup when you are done.
 
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/aws-samples/workshop-textract-comprehend-es)
