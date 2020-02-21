@@ -1,15 +1,18 @@
-# Step A
+# Rekognition video analyzer
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+In this lab you will build a demo application for analyzing live video with [Amazon Rekognition](https://aws.amazon.com/rekognition/).
 
-## 1. This is the first section
+![architecture diagram](https://github.com/aws-samples/amazon-rekognition-video-analyzer/raw/master/doc/serverless_pipeline_arch_2.png)
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
+During the lab you will:
+* Setup and install the basics required for capturing video from a camera, like e.g. your laptop webcam.
+* Configure the Cloud Formation template for your prototype.
+* Deploy the Lambda function for your prototype.
+* Play with the demo graphical interface, detecting objects in the video.
+* Delete the resources when you are done.
 
-![screenshot](img/create-role.png)
+<img src="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2017/07/27/serverless_video_frame_analysis_3.jpg" alt="" width="500"/>
 
+You can read the full post at the AWS Machine Learning Blog [here](https://aws.amazon.com/blogs/machine-learning/create-a-serverless-solution-for-video-frame-analysis-and-alerting/)
+
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/aws-samples/amazon-rekognition-video-analyzer)
