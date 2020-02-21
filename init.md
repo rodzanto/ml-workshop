@@ -36,8 +36,8 @@ Choose one of the labs below using the side bar on the left, and follow the inst
 |:------------------------------------------:|:--------:|:--------------------------------------------------------------------:|:--------------:|
 | Rekognition video analyzer                   | Intermediate | * Rekognition Object Detection       |                |
 | Rekognition Custom Labels                   | Beginner & Advanced | * Rekognition Custom Labels       |                |
-| Rekognition powered Twitter bot                   | Intermedite | * Rekognition Face Detection       |                |
-| Textract and Comprehend for documents analysis                   | Intermedite | * Textract Text Extraction * Comprehend Entity Detection * Elasticsearch indexing      |                |
+| Rekognition powered Twitter bot                   | Intermediate | * Rekognition Face Detection       |                |
+| Textract and Comprehend for documents analysis                   | Intermediate | * Textract Text Extraction * Comprehend Entity Detection * Elasticsearch indexing      |                |
 | Polly podcast                   | Beginner | * Polly Text-to-speech      |                |
 | Basic Lex bot                   | Intermediate | * Lex Chatbot       |                |
 
