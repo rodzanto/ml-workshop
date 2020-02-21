@@ -1,15 +1,15 @@
-# Step A
+# Rekognition powered Twitter bot
 
-> [!TIP]
-> This is a tip to remind users about something. This is a tip to remind users about something
+In this lab you will build a twitter bot that modifies the images it receives with Amazon Rekognition to be shown like this:
 
-## 1. This is the first section
+![Twitter bot](https://github.com/aws-samples/aws-rekognition-workshop-twitter-bot/raw/master/imgs/example.png)
 
-* Follow [this deep link to create an IAM role with Administrator access](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess)
-* Confirm that AWS service and EC2 are selected, then click Next to view permissions.
-* Confirm that AdministratorAccess is checked, then click Next to Tags.
-* Just click Next to review.
-* Enter mskworkshop-admin for the Name, and select Create Role
+The high-level steps will be:
+* Setup the Twitter app
+* Launch the Cloud Formation stack for the demo
+* Send a test tweet
+* Understand how the script works, and perform the additional exercises if desired
 
-![screenshot](img/create-role.png)
+![Architecture diagram](diagram.png)
 
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/aws-samples/aws-rekognition-workshop-twitter-bot)
