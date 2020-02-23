@@ -12,4 +12,4 @@ Once the model is put into production, you can use SageMaker Model Monitor to de
 
 In this lab you will train a model using the XGBoost algorithm that will classify a given network traffic flow and detect whether it is benign or malicious.
 
-[![go to lab](../../_media/go-to-lab.png)](https://github.com/sirimuppala/customer-churn-prediction-amazon-sagemaker-workshop)
+[![go to lab](../../_media/go-to-lab.png)](https://github.com/aws-samples/reinvent2019-aim362-sagemaker-debugger-model-monitor)
