@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Install phase"
+  build:
+    commands:
+      - echo "Build phase"
+
+      - cd $CODEBUILD_SRC_DIR/labs-src/ai/text-analysis/www
+      - zip -r $CODEBUILD_SRC_DIR/aiml-workshops-text-analysis-www.zip .
+
+      - cd $CODEBUILD_SRC_DIR/labs-src/ai/text-analysis
+      - zip -r $CODEBUILD_SRC_DIR/aiml-workshops-text-analysis-api.zip api.py
+
+artifacts:
+  secondary-artifacts:
+    WorkshopResourcesArtifact:
+      files:
+        - $CODEBUILD_SRC_DIR/aiml-workshops-text-analysis-www.zip
+      name: WorkshopResourcesArtifact
+      discard-paths: yes
+    WorkshopInfraArtifact:
+      files:
+        - $CODEBUILD_SRC_DIR/aiml-workshops-text-analysis-api.zip
+        - $CODEBUILD_SRC_DIR/labs-src/ai/text-analysis/aiml-workshops-text-analysis.template.yaml
+      name: WorkshopInfraArtifact
+      discard-paths: yes
