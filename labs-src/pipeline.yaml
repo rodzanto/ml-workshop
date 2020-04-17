@@ -1,0 +1,209 @@
+Description: Template for the CI/CD pipeline of the AI services-related workshops
+
+Parameters:
+  GitHubRepoOwner:
+    Description: The owner of the GitHub repository
+    Type: String
+  GitHubRepo:
+    Description: The name of the GitHub repository
+    Type: String
+  GitHubRepoBranch:
+    Description: The branch of the GitHub repository
+    Type: String
+  GitHubRepoOAuthToken:
+    Description: The OAuth token to pull from the repository
+    Type: String
+    NoEcho: true
+  ArtifactBucketName:
+    Description: The name of the artifact bucket to be created
+    Type: String
+  WorkshopResourcesBucket:
+    Description: The target bucket where the final resources will be uploaded
+    Type: String
+
+Resources:
+  ArtifactBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref ArtifactBucketName
+      LifecycleConfiguration:
+        Rules:
+          - ExpirationInDays: 7
+            Id: ExpireAfterOneWeek
+            Status: Enabled
+
+  BuildLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      RetentionInDays: 3
+
+  CodeBuildServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: codebuild.amazonaws.com
+            Action: sts:AssumeRole
+
+  CodeBuildServiceRolePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Sid: CloudWatchLogsPolicy
+            Effect: Allow
+            Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+            Resource: '*'
+          - Sid: S3GetObjectPolicy
+            Effect: Allow
+            Action:
+              - s3:GetObject
+              - s3:GetObjectVersion
+            Resource: '*'
+          - Sid: S3PutObjectPolicy
+            Effect: Allow
+            Action:
+              - s3:PutObject
+            Resource: '*'
+          - Sid: S3BucketIdentity
+            Effect: Allow
+            Action:
+              - s3:GetBucketAcl
+              - s3:GetBucketLocation
+            Resource: '*'
+      PolicyName: CodeBuildServiceRolePolicy
+      Roles:
+        - !Ref CodeBuildServiceRole
+
+  CodePipelineServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: codepipeline.amazonaws.com
+            Action: sts:AssumeRole
+
+  CodePipelineServiceRolePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Sid: AllowWorkingWithArtifactStorage
+            Effect: Allow
+            Action:
+              - s3:GetObject
+              - s3:PutObject
+            Resource:
+              - !GetAtt ArtifactBucket.Arn
+              - !Sub '${ArtifactBucket.Arn}/*'
+          - Sid: AllowWorkingWithBuilds
+            Effect: Allow
+            Action:
+              - codebuild:BatchGetBuilds
+              - codebuild:StartBuild
+            Resource: !GetAtt BuildProject.Arn
+          - Sid: AllowUploadsToWorkshopResourcesBucket
+            Effect: Allow
+            Action:
+              - s3:PutObject
+            Resource:
+              - !Sub 'arn:aws:s3:::${WorkshopResourcesBucket}'
+              - !Sub 'arn:aws:s3:::${WorkshopResourcesBucket}/*'
+      PolicyName: CodePipelineServiceRolePolicy
+      Roles:
+        - !Ref CodePipelineServiceRole
+
+  BuildProject:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Artifacts:
+        Type: CODEPIPELINE
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/standard:3.0
+        Type: LINUX_CONTAINER
+      LogsConfig:
+        CloudWatchLogs:
+          GroupName: !Ref BuildLogGroup
+          Status: ENABLED
+      Name: aiml-workshops
+      ServiceRole: !Ref CodeBuildServiceRole
+      Source:
+        BuildSpec: labs-src/ai/text-analysis/buildspec.yaml
+        Type: CODEPIPELINE
+
+  Pipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      ArtifactStore:
+        Location: !Ref ArtifactBucket
+        Type: S3
+      Name: aiml-workshops
+      RoleArn: !GetAtt CodePipelineServiceRole.Arn
+      Stages:
+        - Name: Source
+          Actions:
+            - ActionTypeId:
+                Category: Source
+                Owner: ThirdParty
+                Provider: GitHub
+                Version: 1
+              Configuration:
+                Owner: !Ref GitHubRepoOwner
+                Repo: !Ref GitHubRepo
+                Branch: !Ref GitHubRepoBranch
+                OAuthToken: !Ref GitHubRepoOAuthToken
+                PollForSourceChanges: false
+              Name: SourceAction
+              OutputArtifacts:
+                - Name: SourceArtifact
+        - Name: Build
+          Actions:
+            - ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Provider: CodeBuild
+                Version: 1
+              Configuration:
+                ProjectName: !Ref BuildProject
+              InputArtifacts:
+                - Name: SourceArtifact
+              Name: BuildAction
+              OutputArtifacts:
+                - Name: WorkshopResourcesArtifact
+                - Name: WorkshopInfraArtifact
+        - Name: Deploy
+          Actions:
+            - ActionTypeId:
+                Category: Deploy
+                Owner: AWS
+                Provider: S3
+                Version: 1
+              Configuration:
+                BucketName: !Ref WorkshopResourcesBucket
+                Extract: true
+              InputArtifacts:
+                - Name: WorkshopResourcesArtifact
+              Name: DeployWorkshopResources
+            - ActionTypeId:
+                Category: Deploy
+                Owner: AWS
+                Provider: S3
+                Version: 1
+              Configuration:
+                BucketName: !Ref WorkshopResourcesBucket
+                Extract: true
+              InputArtifacts:
+                - Name: WorkshopInfraArtifact
+              Name: DeployWorkshopInfra
