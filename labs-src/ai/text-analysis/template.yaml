@@ -1,0 +1,58 @@
+Parameters:
+  ApiFunctionCodeS3Bucket:
+    Type: String
+    Description: The S3 bucket where the code for the API handler Lambda function is located
+  ApiFunctionCodeS3Key:
+    Type: String
+    Description: The S3 key where the code for the API handler Lambda function is located
+
+Resources:
+  ImageBucket:
+    Type: AWS::S3::Bucket
+
+  ApiFunctionExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
+        - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+        - arn:aws:iam::aws:policy/AmazonTextractFullAccess
+        - arn:aws:iam::aws:policy/ComprehendReadOnly
+
+  ApiFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: !Ref ApiFunctionCodeS3Bucket
+        S3Key: !Ref ApiFunctionCodeS3Key
+      FunctionName: AIServicesWorkshop-TextAnalysis-ApiHandler
+      Handler: api.lambda_handler
+      MemorySize: 256
+      Role: !GetAtt ApiFunctionExecutionRole.Arn
+      Runtime: python3.7
+      Timeout: 10
+
+  Api:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: AIServicesWorkshop-TextAnalysis-Api
+      ProtocolType: HTTP
+      Target: !GetAtt ApiFunction.Arn
+
+  ApiPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref ApiFunction
+      Principal: apigateway.amazonaws.com
+
+Outputs:
+  ApiEndpoint:
+    Description: The API endpoint
+    Value: !Sub 'https://${Api}.execute-api.${AWS::Region}.amazonaws.com'
