@@ -33,10 +33,6 @@ var s3Client = new AWS.S3(
 	}
 );
 
-function trace(msg) {
-	$('#debug').append(`${msg}\n`);
-}
-
 function showMessage(msg, cls) {
 	var container = $('#alerts');
 	var alert = $(
