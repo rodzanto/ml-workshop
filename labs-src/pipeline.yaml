@@ -14,23 +14,19 @@ Parameters:
     Description: The OAuth token to pull from the repository
     Type: String
     NoEcho: true
-  ArtifactBucketName:
-    Description: The name of the artifact bucket to be created
-    Type: String
-  WorkshopResourcesBucket:
-    Description: The target bucket where the final resources will be uploaded
-    Type: String
 
 Resources:
   ArtifactBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Ref ArtifactBucketName
       LifecycleConfiguration:
         Rules:
           - ExpirationInDays: 7
             Id: ExpireAfterOneWeek
             Status: Enabled
+
+  WorkshopResourcesBucket:
+    Type: AWS::S3::Bucket
 
   BuildLogGroup:
     Type: AWS::Logs::LogGroup
