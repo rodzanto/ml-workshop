@@ -11,10 +11,8 @@ phases:
       - cd labs-src
 
       - ./prepare_source_for_labs.sh ./ai/text-analysis/www/script.js
-      - zip -r ./aiml-workshops-text-analysis-www.zip .
-
-      - cd $CODEBUILD_SRC_DIR/labs-src/ai/text-analysis
-      - zip -r ./aiml-workshops-text-analysis-api.zip ./labs-src/ai/text-analysis/api.py
+      - zip -r ./aiml-workshops-text-analysis-www.zip ./ai/text-analysis/www
+      - zip -r ./aiml-workshops-text-analysis-api.zip ./ai/text-analysis/api.py
 artifacts:
   secondary-artifacts:
     WorkshopResourcesArtifact:
