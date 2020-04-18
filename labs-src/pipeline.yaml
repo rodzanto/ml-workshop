@@ -140,7 +140,7 @@ Resources:
       Name: aiml-workshops
       ServiceRole: !Ref CodeBuildServiceRole
       Source:
-        BuildSpec: labs-src/ai/text-analysis/buildspec.yaml
+        BuildSpec: labs-src/buildspec.yaml
         Type: CODEPIPELINE
 
   Pipeline:
