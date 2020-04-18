@@ -16,6 +16,7 @@ def detect_text_in_image(bucket_name, key):
     # HINT: call Textract's DetectDocumentText action and return a string with
     # all lines joined together.
     #
+    #@beginExercise
     response = textract.detect_document_text(
         Document={
             'S3Object': {
@@ -27,6 +28,7 @@ def detect_text_in_image(bucket_name, key):
     blocks = filter(lambda x: x['BlockType'] == 'LINE', response['Blocks'])
     lines = map(lambda x: x['Text'], blocks)
     return "\n".join(lines)
+    #@endExercise
 
 def analyze_text(text):
     #
@@ -41,6 +43,7 @@ def analyze_text(text):
     #       'SentimentAnalysis': <containing both the sentiment and sentiment score>,
     #       'Entities': <all entities except those of type DATE and QUANTITY>
     #   }
+    #@beginExercise
     response = comprehend.detect_dominant_language(
         Text=text
     )
@@ -59,6 +62,7 @@ def analyze_text(text):
     entities = filter(lambda x: x['Type'] not in ['DATE', 'QUANTITY'], response['Entities'])
 
     return {'Language': language, 'SentimentAnalysis': sentiment, 'Entities': list(entities)}
+    #@endExercise
 
 def search_wikipedia(term):
     r = http.request('GET', 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch={}'.format(term))

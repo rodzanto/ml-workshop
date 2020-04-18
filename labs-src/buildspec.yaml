@@ -10,6 +10,7 @@ phases:
 
       - cd labs-src
       - ./prepare_source_for_labs.sh ./ai/text-analysis/www/script.js
+      - ./prepare_source_for_labs.sh ./ai/text-analysis/api.py
 
       - cd $CODEBUILD_SRC_DIR/labs-src/ai/text-analysis/www
       - zip -r $CODEBUILD_SRC_DIR/aiml-workshops-text-analysis-www.zip .
