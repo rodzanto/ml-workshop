@@ -21,6 +21,7 @@
     - [Rekognition Custom Labels](artificial-intelligence/rekognition-custom-labels/1-step.md)
     - [Rekognition powered Twitter bot](artificial-intelligence/rekognition-twitter/1-step.md)
     - [Textract and Comprehend for documents analysis](artificial-intelligence/textract-comprehend-documents/1-step.md)
+    - [Text analysis with Textract and Comprehend](artificial-intelligence/text-analysis-textract-comprehend/01-lab.md)
     - [Polly podcast](artificial-intelligence/polly-podcast/1-step.md)
     - [Basic Lex bot](artificial-intelligence/lex-bot/1-step.md)
 
