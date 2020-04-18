@@ -189,5 +189,4 @@ function submitForm(event) {
 window.onload = () => {
 	bsCustomFileInput.init();
 	$('#form').submit(submitForm);
-	trace('Ready');
 }
