@@ -113,6 +113,7 @@ Resources:
             Effect: Allow
             Action:
               - s3:PutObject
+              - s3:PutObjectAcl
             Resource:
               - !Sub 'arn:aws:s3:::${WorkshopResourcesBucket}'
               - !Sub 'arn:aws:s3:::${WorkshopResourcesBucket}/*'
@@ -189,6 +190,7 @@ Resources:
               Configuration:
                 BucketName: !Ref WorkshopResourcesBucket
                 Extract: true
+                CannedACL: public-read
               InputArtifacts:
                 - Name: WorkshopResourcesArtifact
               Name: DeployWorkshopResources
@@ -200,6 +202,7 @@ Resources:
               Configuration:
                 BucketName: !Ref WorkshopResourcesBucket
                 Extract: true
+                CannedACL: public-read
               InputArtifacts:
                 - Name: WorkshopInfraArtifact
               Name: DeployWorkshopInfra
