@@ -25,6 +25,7 @@ var apiEndpoint = '';
 /*
  * HINT: instantiate here the S3 client.
  */
+//@beginExercise
 var s3Client = new AWS.S3(
 	{
 		accessKeyId: awsAccessKeyId,
@@ -32,6 +33,7 @@ var s3Client = new AWS.S3(
 		region: awsRegion
 	}
 );
+//@endExercise
 
 function showMessage(msg, cls) {
 	var container = $('#alerts');
@@ -61,8 +63,15 @@ function showError(msg) {
 function uploadFileToS3(file, bucket) {
 	var promise = new Promise((resolve, reject) => {
 		/*
-		 * HINT: upload the provided file to the given bucket.
+		 * HINT: upload the provided file to the given bucket using the S3
+		 * client you created before.
+		 *
+		 * Take a look at the .upload() method in the SDK documentation.
+		 *
+		 * Use the success/error callbacks to either resolve or reject the
+		 * returned promise.
 		 */
+		//@beginExercise
 		var params = {Bucket: bucket, Key: file.name, Body: file};
 		s3Client.upload(params, function(err, data) {
 			if (err) {
@@ -71,6 +80,7 @@ function uploadFileToS3(file, bucket) {
 				resolve(data);
 			}
 		});
+		//@endExercise
 	});
 	return promise;
 }
