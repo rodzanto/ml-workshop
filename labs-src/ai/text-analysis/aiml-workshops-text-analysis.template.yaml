@@ -7,7 +7,7 @@ Parameters:
     Description: The S3 key where the code for the API handler Lambda function is located
 
 Resources:
-  ImageBucket:
+  UploadBucket:
     Type: AWS::S3::Bucket
 
   ApiFunctionExecutionRole:
@@ -53,6 +53,9 @@ Resources:
       Principal: apigateway.amazonaws.com
 
 Outputs:
+  UploadBucket:
+    Description: The name of the S3 bucket where documents will be uploaded
+    Value: !Ref UploadBucket
   ApiEndpoint:
     Description: The API endpoint
     Value: !Sub 'https://${Api}.execute-api.${AWS::Region}.amazonaws.com'
