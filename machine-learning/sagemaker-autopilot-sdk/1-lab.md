@@ -28,7 +28,7 @@ First, onboard to SageMaker Studio using the Quick start:
 * On the Amazon SageMaker Studio Control Panel, under Get started, choose Quick start.
     * For "User name", keep the default name or create a new name. The name can be up to 63 characters. Valid characters: A-Z, a-z, 0-9, and - (hyphen).
     * For Execution role, choose "Create a new role", the Create an IAM role dialog opens:
-        * For S3 buckets you specify, specify additional S3 buckets that users of your notebooks can access. If you don't want to add access to more buckets, choose None.
+        * For S3 buckets you specify choose None.
     * Choose Create role. Amazon SageMaker creates a new IAM role with the AmazonSageMakerFullAccess policy attached.
     * Choose Submit.
 * On the Amazon SageMaker Studio Control Panel, under Studio Summary, wait for "Status" to change to "Ready".
@@ -42,3 +42,18 @@ Now that you've onboarded to Amazon SageMaker Studio, you can simply use the fol
 
 ## **Working with an Amazon SageMaker Autopilot notebook in Studio**
 
+Now, get the notebook that you will be using and follow the steps on it:
+* If not open already, create a new Studio Launcher tab by going to "File"->"New Launcher".
+* Click on "Image Terminal" to open a new terminal tab.
+* Copy-paste the following command in the terminal and hit enter. This will copy the notebook to your Studio local environment.
+    ``` javascript
+    wget https://github.com/rodzanto/ml-workshop/raw/toro/machine-learning/sagemaker-autopilot-sdk/sagemaker_autopilot_direct_marketing.ipynb
+    ```
+* In the left menu go to the "File Browser" (folder icon at the top-left).
+* Double click the notebook file called *"sagemaker_autopilot_direct_maketing.ipynb"*. The notebook will open on a new tab.
+* In the select kernel pop-up, select "Python (Data Science)"
+* Now **read** and follow the cells in the notebook one by one
+    > If you are new to Jupyter notebooks, you can run the notebook document step-by-step (one cell a time) by pressing "shift" + "enter"
+
+The notebook will guide you through the process for performing the following tasks:
+* Get the dataset
