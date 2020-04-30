@@ -5,7 +5,7 @@ In this lab, you will get to know **Amazon SageMaker Autopilot** by using the SD
     >*Note: If you already have an Studio profile in your account skip to step 2 below.*
     * Onboard to Amazon SageMaker Studio with the QuickStart
     * Open Studio
-2. Working with a notebook in Studio using **Amazon SageMaker Autopilot**
+2. Working with an **Amazon SageMaker Autopilot** notebook in Studio
     * Exploring the notebook
     * Creating an **Amazon SageMaker Experiment** for organizing our candidates
     * Launching an **Amazon SageMaker Autopilot** job
@@ -35,10 +35,10 @@ First, onboard to SageMaker Studio using the Quick start:
 * When Status is Ready, the user name that you specified is enabled and chosen. The Add user and Delete user buttons, and the Open Studio link are also enabled.
 * Choose "Open Studio". The Amazon SageMaker Studio loading page displays. When Studio opens you can start using it (this can take a few mins the first time).
 
-Now that you've onboarded to Amazon SageMaker Studio, use the following steps to access Studio later.
+Now that you've onboarded to Amazon SageMaker Studio, you can simply use the following steps to access Studio the following times.
 * Open the Amazon SageMaker console.
 * Choose "Amazon SageMaker Studio" at the top left of the page.
 * On the Amazon SageMaker Studio Control Panel, choose your user name and then choose "Open Studio".
 
-## **Working with a notebook in Studio using Amazon SageMaker Autopilot**
+## **Working with an Amazon SageMaker Autopilot notebook in Studio**
 
