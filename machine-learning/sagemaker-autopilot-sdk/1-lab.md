@@ -2,7 +2,7 @@
 
 In this lab, you will get to know **Amazon SageMaker Autopilot** by using the SDK through the following steps:
 1. Creating a new **Amazon SageMaker Studio** profile
-    >*Note: If you already have an Studio profile in your account skip to step 2 below.*
+    >*Note: If you already have an Studio profile in your account skip the onboarding step below.*
     * Onboard to Amazon SageMaker Studio with the QuickStart
     * Open Studio
 2. Working with an **Amazon SageMaker Autopilot** notebook in Studio
@@ -49,7 +49,9 @@ First, onboard to SageMaker Studio using the Quick start:
 
 ## **Working with an Amazon SageMaker Autopilot notebook in Studio**
 
-Now, get the notebook that you will be using and follow the steps on it:
+> Note SageMaker Autopilot can be used either from the graphical interface via the SageMaker Studio Launcher, or with code via the SageMaker SDK. In the following steps we will follow the SDK alternative.
+
+Now that your SageMaker Studio is open, you will get the notebook that we will be using and follow the steps on it:
 * If not open already, create a new Studio Launcher tab by going to "File"->"New Launcher".
 
 <div align="center"><img src="./screen3.png" width="500" alt=""/></div>
@@ -60,7 +62,7 @@ Now, get the notebook that you will be using and follow the steps on it:
     wget https://github.com/rodzanto/ml-workshop/raw/toro/machine-learning/sagemaker-autopilot-sdk/sagemaker_autopilot_direct_marketing.ipynb
     ```
 
-<div align="center"><img src="./screen4.png" width="800" alt=""/></div>
+<div align="center"><img src="./screen4.png" width="900" alt=""/></div>
 
 * In the left menu go to the "File Browser" (folder icon at the top-left).
 * Double click the notebook file called *"sagemaker_autopilot_direct_maketing.ipynb"*. The notebook will open on a new tab.
@@ -80,7 +82,19 @@ The notebook will guide you through the process for performing the following tas
 * Launch the SageMaker Autopilot job.
     > Note the full AutoML process will take approximately 20 minutes to complete.
 * Once completed it will show the results.
+    > Note you can also explore the results in the Studio Experiments section:
+
+    <div align="center"><img src="./screen6.png" width="900" alt=""/></div>
+
 * Perform a SageMaker batch inference job, for predicting many records stored at S3 with our best Autopilot model.
-    > Note with SageMaker you can either deploy Endpoints for real-time inference, or performing batch inferences for going through a set of records in files stored at S3. You can use one or the other depending on your specific use case.
+
+    <div align="center"><img src="./screen7.png" width="120" alt=""/></div>
+
+    > Note with SageMaker you can either deploy Endpoints for real-time inference, or performing batch inferences (like you do in this lab) for going through a set of records in files stored at S3. You can use one or the other depending on your specific use case.
+
 * Optionally, explore the resulting notebooks from the Autopilot job.
     > Note Amazon SageMaker Autopilot allows you to use the AutoML job as a base, for further adjusting or continue improving your data-science work, by working with the resulting notebooks.
+
+<div align="center"><img src="./screen8.png" width="400" alt=""/></div>
+
+Congratulations! You have completed this lab.
