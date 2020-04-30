@@ -56,4 +56,8 @@ Now, get the notebook that you will be using and follow the steps on it:
     > If you are new to Jupyter notebooks, you can run the notebook document step-by-step (one cell a time) by pressing "shift" + "enter"
 
 The notebook will guide you through the process for performing the following tasks:
-* Get the dataset
+* Download the public Direct Marketing dataset.
+* Explore the data, split it into training and test, and upload to Amazon S3.
+* Set-up the SageMaker Autopilot job.
+* Launch the SageMaker Autopilot job.
+
