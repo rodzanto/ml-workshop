@@ -3,7 +3,7 @@
 In this lab, you will get to work with **Amazon SageMaker** built-in algorithms, compare its performance vs the open-source versions, and performing inferences through models hosted in **AWS Lambda** for cost savings.
 
 You will go through the following steps in summary:
-1. Creating a new **Amazon SageMaker Studio** profile
+1. Creating a new **Amazon SageMaker Studio** profile, or alternatively a traditional **Amazon SageMaker** notebook instance.
     >*Note 1: If you already have an Studio profile in your account skip the onboarding step below.*
 
     >*Note 2: You can also work on this laboratory with a traditional notebook instance (not Studio) in SageMaker. For information on how to create one follow the documentation [here](https://docs.aws.amazon.com/sagemaker/latest/dg/howitworks-create-ws.html).*
@@ -14,7 +14,7 @@ You will go through the following steps in summary:
     * Exploring and working with the notebooks
         * Preparing data
         * Training with built-in and open source algorithms
-        * Comparing the performance
+        * Comparing the performance of both algorithms
 3. Hosting trained models with **AWS Lambda** and performing inferences
 
 <br>
@@ -56,7 +56,7 @@ First, onboard to SageMaker Studio using the Quick start:
 
 **Amazon SageMaker** provides several built-in machine learning algorithms that you can use for a variety of problem types. For information on the built-in algorithms check the documentation [here](https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html).
 
-For this lab we will use a Jupyter notebook for guiding us through the process. Open a new terminal in your instance following options 1 or 2 below.
+For this lab we will use a Jupyter notebook for guiding us through the process, and the XGBoost algorithm. Open a new terminal in your instance following options 1 or 2 below:
 
 1. If using SageMaker Studio:
     * If not open already, create a new Studio Launcher tab by going to "File"->"New Launcher".
@@ -67,13 +67,13 @@ For this lab we will use a Jupyter notebook for guiding us through the process. 
 
     * Copy-paste the following command in the terminal and hit enter. This will copy the notebook to your Studio local environment.
         ``` javascript
-        wget https://github.com/rodzanto/ml-workshop/raw/toro/machine-learning/sagemaker-autopilot-sdk/sagemaker_autopilot_direct_marketing.ipynb
+        wget https://github.com/rodzanto/ml-workshop/raw/toro/machine-learning/sagemaker-optimization-1/sagemaker_optimization_xgboost.ipynb
         ```
 
     <div align="center"><img src="./screen4.png" width="900" alt=""/></div>
 
     * In the left menu go to the "File Browser" (folder icon at the top-left).
-    * Double click the notebook file called *"sagemaker_autopilot_direct_maketing.ipynb"*. The notebook will open on a new tab.
+    * Double click the notebook file called *"sagemaker_optimization_xgboost.ipynb"*. The notebook will open on a new tab.
     * In the select kernel pop-up, select "Python (Data Science)".
 
     <div align="center"><img src="./screen5.png" width="400" alt=""/></div>
@@ -87,7 +87,7 @@ For this lab we will use a Jupyter notebook for guiding us through the process. 
         ``` javascript
         cd SageMaker
 
-        wget https://github.com/rodzanto/ml-workshop/raw/toro/machine-learning/sagemaker-autopilot-sdk/sagemaker_autopilot_direct_marketing.ipynb
+        wget https://github.com/rodzanto/ml-workshop/raw/toro/machine-learning/sagemaker-optimization-1/sagemaker_optimization_xgboost.ipynb
         ```
 
 * Now **read** and follow the cells in the notebook one by one.
@@ -96,17 +96,22 @@ For this lab we will use a Jupyter notebook for guiding us through the process. 
     > * When the cell execution completes it will show the execution number
 
 The notebook will guide you through the process for performing the following tasks:
-
+* Downloading a public dataset
+* Preparing the data for training in SageMaker
+* Training with an open source version of XGBoost
+* Training with SageMaker built-in XGBoost
+* Comparing performance of both approaches
 
 COMPLETE HERE!!!!!!!!!!!
 
 
 ## **Hosting trained models with AWS Lambda and performing inferences**
 
-Amazon SageMaker allows you to either deploy your trained model to Endpoints for making inferences in real-time, or directly performing batch inferences for lists of records stored in S3. In this case we will follow a third approach in order to save costs for our model hosting, as we will host our trained model artifacts using **AWS Lambda** directly for making inferences dynamically to it.
+Amazon SageMaker allows you to either deploy your trained model to Endpoints for making inferences in real-time, or directly performing batch inferences for lists of records stored in S3. In this case we will follow a third approach in order to save costs for our model hosting, as we will host our trained model artifacts using **AWS Lambda** directly, for making inferences dynamically to it.
 
 In order to do this follow these steps:
-* A
+* Go to the AWS Console and look for "AWS Lambda"
+* In the AWS Lambda console choose...
 
 COMPLETE HERE!!!!!!!!!!!
 
