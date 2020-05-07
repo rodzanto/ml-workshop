@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  background-color: black;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#videoFrame {
+  flex: none;
+  margin: 0 auto;
+  height: 480px;
+  border:1px solid #333;
+}
+
+#labelResults {
+  color: black;
+  background-color: rgba(144, 231, 156, 0.4);
+
+  position: absolute;
+  top: 20px;
+  left: 1000px;
+  width: 250px;
+  padding: 5px;
+
+  text-shadow: 1px 1px white;
+  font-family: monospace;
+
+  border-color: black;
+  border-width: 1px;
+  border-style: dashed;
+}
+
+#faceResults {
+  color: black;
+  background-color: rgba(118, 161, 224, 0.4);
+  visibility: hidden;
+
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 5px;
+
+  text-shadow: 1px 1px white;
+  font-family: monospace;
+
+  border-color: black;
+  border-width: 1px;
+  border-style: dashed;
+}
+
+#faceBox {
+  visibility: hidden;
+
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 5px;
+
+  border: 4px solid #ff9900;
+}
+
+#faceCelebrity {
+  color: red;
+  font-family: monospace;
+  visibility: hidden;
+  font-size: 30px;
+
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 5px;
+
+  border: 4px solid #bf0816;
+}
+
+.rekLabel {
+  font-size: 20pt;
+}
+
+.rekType {
+  font-size: 20pt;
+}
+
+.rekScore {
+  font-size: 12pt;
+}
+
+.speech-bubble .arrow {
+  border-style: solid;
+  position: absolute;
+}
+
+.bottom {
+    border-color: #c8c8c8 transparent transparent transparent;
+    border-width: 8px 8px 0px 8px;
+    bottom: -8px;
+}
+
+#box {
+  position:absolute;
+  visibility: hidden;
+  border-color: #eb0202;
+  border-width: 1px;
+  border-style: dotted;
+}
+
+#speechBubble {
+  position:absolute;
+  visibility: hidden;
+  opacity: 0.8;
+
+  width:270px;
+  height:30px;
+  padding:50px 40px;
+  margin:1em auto 80px;
+  text-align:center;
+  columns: #000000;
+  background:#ffffff;
+
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-border-top-left-radius:220px 120px;
+  -webkit-border-top-right-radius:220px 120px;
+  -webkit-border-bottom-right-radius:220px 120px;
+  -webkit-border-bottom-left-radius:220px 120px;
+  -moz-border-radius:220px / 120px;
+  border-radius:220px / 120px;
+
+  font-size:1.25em;
+  font-family: monospace;
+}
+
+/* creates the larger circle */
+#speechBubble:before {
+  content:"";
+  position:absolute;
+
+  bottom:-20px;
+  left:50px;
+  width:30px;
+  height:30px;
+  background:#ffffff;
+
+  -webkit-border-radius:30px;
+  -moz-border-radius:30px;
+  border-radius:30px;
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* creates the smaller circle */
+#speechBubble:after {
+  content:"";
+  position:absolute;
+
+  bottom:-30px;
+  left:30px;
+  width:15px;
+  height:15px;
+  background:#ffffff;
+
+  -webkit-border-radius:15px;
+  -moz-border-radius:15px;
+  border-radius:15px;
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+}

@@ -10,7 +10,7 @@
 var awsAccessKeyId = '';
 var awsSecretAccessKey = '';
 
-// The region in which to operate (eu-west-1, us-east-1, etc.).
+// The AWS region in which to operate (eu-west-1, us-east-1, etc.).
 var awsRegion = '';
 
 // The base endpoint of your API. Set this to the appropriate value.
