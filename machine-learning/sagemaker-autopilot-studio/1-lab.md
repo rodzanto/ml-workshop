@@ -1,4 +1,4 @@
-# Amazon SageMaker Autopilot SDK laboratory
+# Amazon SageMaker Studio Autopilot laboratory
 
 In this lab, you will use the **Autopilot** and **Experiments** fetures integrated on the **Amazon SageMaker Studio** UI.
 
@@ -38,7 +38,7 @@ First, onboard to SageMaker Studio using the Quick start:
 
 * On the Amazon SageMaker Studio Control Panel, under Get started, choose Quick start.
     * For "User name", keep the default name or create a new name. The name can be up to 63 characters. Valid characters: A-Z, a-z, 0-9, and - (hyphen).
-    * For Execution role, choose "Create a new role", the Create an IAM role dialog opens. For S3 buckets you can choose "None".
+    * For Execution role, choose "Create a new role", the Create an IAM role dialog opens. For S3 buckets you, choose "Any S3 bucket".
     * Choose "Create role". Amazon SageMaker creates a new IAM role with the AmazonSageMakerFullAccess policy attached.
     * Choose "Submit".
 * On the Amazon SageMaker Studio Control Panel, under Studio Summary, wait for "Status" to change to "Ready".
@@ -69,22 +69,23 @@ Before setting up a new Autopilot job, we need to set up an S3 bucket that will 
 
 2. First, let's create the S3 bucket:
 
-    
-    aws s3 mb s3://sm-autopilot-lab-$AWS_ACCOUNT_ID
-
+```
+  aws s3 mb s3://sm-autopilot-lab-$AWS_ACCOUNT_ID
+```
 
 3. Now let's grab the dataset that Autopilot will use to train the model and upload it to our bucket:
 
-
-    wget -N https://sagemaker-sample-data-us-west-2.s3-us-west-2.amazonaws.com/autopilot/direct_marketing/bank-additional.zip
-    sudo yum -y install unzip
-    unzip bank-additional.zip
+```
+  curl https://sagemaker-sample-data-us-west-2.s3-us-west-2.amazonaws.com/autopilot/direct_marketing/bank-additional.zip --output bank-additional.zip
+  sudo yum -y install unzip
+  unzip bank-additional.zip
+```
 
 4. Finally, upload the dataset to our bucket:
 
-
-    aws s3 cp bank-additional/bank-additional-full.csv s3://sm-autopilot-lab-$AWS_ACCOUNT_ID
-
+```
+  aws s3 cp bank-additional/bank-additional-full.csv s3://sm-autopilot-lab-$AWS_ACCOUNT_ID
+```
 
 Now that data is ready, we can take a look at the source data from the local copy we have on Studio's shared storage:
 
