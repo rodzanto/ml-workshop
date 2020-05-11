@@ -204,24 +204,137 @@ As the Autopilot experiment advances through the __Feature Engineering__ and __M
 
 Once the Autopilot job is in the __Completed__ state, go to the experiment tab and order the trials by the _Objective_ column in descending order. The first trial will be the one with the highest accuracy (and will be marked with the _Best_ prefix).
 
+> Note: The autopilot job will take over 1 hour. While you won't have the best candidate until the Autopilot job is finished, you are able to deploy any of the already trained models while the process is ongoing.
+
 ![Best candidate](sm-autopilot-13.png)
 
-* Choose the best trial and click on the __Deploy model__ button.
+* Choose the best currently available trial and click on the __Deploy model__ button.
 * Fill the required fields for the real time model deployment:
   * Deployment name: _sm-autopilot-lab_
   * Instance type: _ml.m5.large_
   * Instance count: _1_
-  
+
 > The _Data capture_ section allows to capture the inference information in order to monitor the model behaviour. Leave this options uncheked at this time.
 
 * Click on the __Deploy model__ button.
 
 ![Deploy model](sm-autopilot-14.png)
 
-You can see the model deployment status on the _Endpoints_ menu on the left side of the window. When the model status is _InService_, the model will be deployed and ready to receive inference requests.
+You can see the model deployment status on the _Endpoints_ menu on the left side of the window.
+
+When the model status is _InService_, the model will be deployed and ready to receive inference requests.
+Double click on the endpoint name, and look for the _ARN_ field under the _ENDPOINT SETTINGS_ section. Copy this value as you will use it on the next section.
 
 > Note with SageMaker you can either deploy Endpoints for real-time inference (like you do in this lab), or perform batch inference jobs for going through a set of records in files stored in S3. You can use one or the other depending on your specific use case.
 
 ![InService model](sm-autopilot-15.png)
 
-Congratulations! You have completed this lab.
+### Test the model
+
+After your model endpoint status is _InService_, you can start sending inference requests to the endpoint.
+For the sake of simplicity, a Lambda function is provided in order to send inference requests to the endpoint.
+Follow these steps in order to deploy the Lambda function and send inference requests to the endpoint:
+
+1. On the AWS console, click on Services and choose or search __AWS Lambda__
+2. Click on __Create Function__
+
+![New Lambda function](sm-lambda-1.png)
+
+3. Choose __Author from scratch__ and fill in the following values:
+  * Function name: _sm-autopilot-lab_
+  * Runtime: _Python 3.7_
+  * Premissions: _Create a new role with basic Lambda permisssions_
+4. Click on __Create function__
+
+![Create function](sm-lambda-2.png)
+![Create function](sm-lambda-3.png)
+
+Once the function is created, you will be redirected to the function editor. Follow these steps to deploy a first version of the function:
+
+1. Go to the _Configuration_ tab, copy the following code and paste it on the _Function code_ editor:
+
+```
+import json
+import boto3
+
+runtime = boto3.client('runtime.sagemaker')
+
+def lambda_handler(event, context):
+    
+    print(event)
+    payload = event['data']
+    print(payload)
+    
+    response = runtime.invoke_endpoint(EndpointName='sm-autopilot-lab',
+                                       ContentType='text/csv',
+                                       Body=payload)
+    print("Response: --------")
+
+    pred = response['Body'].read().decode()
+    print(pred)
+    return pred
+```
+
+2. Click on __Save__ on the top right corner.
+
+![Save function](sm-lambda-4.png)
+
+3. Access the _Permissions_ tab and click on the role name from the _Execution Role_ section.
+
+![Go to role](sm-lambda-5.png)
+
+4. Once on the role edition page, click on __Add inline policy__.
+
+![Add policy](sm-lambda-6.png)
+
+5. Choose the _JSON_ tab and paste the following policy on the editor. This policy allows the Lambda function to invoke the deployed model endpoint on your behalf:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sagemaker:InvokeEndpoint",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+6. Click on __Review policy__
+
+![Review policy](sm-lambda-7.png)
+
+7. Use _sm-endpoint-invoke_ as the policy name and click on __Create policy__
+
+![Create policy](sm-lambda-8.png)
+
+8. Close the IAM browser tab and go back to the Lambda function console.
+
+Now the Lambda function is configured and has the right permissions, you can test it with different values in order to call the model inference endpoint.
+
+1. Click on the __Test__ button.
+2. On the _Create test event_ screen, choose __Create new test event__, give the test event a name, and paste the following value on the editor:
+
+
+```
+{
+  "data": "39,housemaid,married,basic.9y,no,yes,no,telephone,may,mon,935,3,999,0,nonexistent,1.1,93.994,-36.4,4.857,5191.0"
+}
+```
+
+> These are the values the Lambda function will pass to the inference endpoint. It includes a value for each of the dataset's columns, except the target variable, which will be returned by the model.
+
+![Create test event](sm-lambda-9.png)
+
+3. Click on __Create__ to save the test event and close the dialog.
+4. Click on __Test__.
+
+On the output window you can check the Lambda output, which includes the inference value returned by the model (_Yes_ or _No_)
+
+> You can edit the test event with different values to send different inference requests to the depolyed model.
+
+![Inference result](sm-lambda-10.png)
+
+__Congratulations!__ You have completed this lab.
