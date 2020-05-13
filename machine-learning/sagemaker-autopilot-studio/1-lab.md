@@ -223,7 +223,7 @@ Once the Autopilot job is in the __Completed__ state, go to the experiment tab a
 You can see the model deployment status on the _Endpoints_ menu on the left side of the window.
 
 When the model status is _InService_, the model will be deployed and ready to receive inference requests.
-Double click on the endpoint name, and look for the _ARN_ field under the _ENDPOINT SETTINGS_ section. Copy this value as you will use it on the next section.
+You can double click on the endpoint name to obtain information and metrics about the deployment.
 
 > Note with SageMaker you can either deploy Endpoints for real-time inference (like you do in this lab), or perform batch inference jobs for going through a set of records in files stored in S3. You can use one or the other depending on your specific use case.
 
