@@ -17,7 +17,7 @@
 - Artificial Intelligence
 
   - [**Lab #2: Explore the AWS Artificial Intelligence Services**](artificial-intelligence/2-overview.md)
-    - [Rekognition video analyzer](artificial-intelligence/rekognition-video/1-step.md)
+    - [Scene and face detection with Rekognition](artificial-intelligence/rekognition-face-analysis/01-lab.md)
     - [Rekognition Custom Labels](artificial-intelligence/rekognition-custom-labels/1-step.md)
     - [Rekognition powered Twitter bot](artificial-intelligence/rekognition-twitter/1-step.md)
     - [Text analysis with Textract and Comprehend](artificial-intelligence/text-analysis-textract-comprehend/01-lab.md)
