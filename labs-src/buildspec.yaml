@@ -8,19 +8,26 @@ phases:
     commands:
       - echo "Build phase"
 
+      # Source code preparation (removal of blocks to be completed by workshop
+      # attendees using our hacky, special annotations).
       - cd labs-src
       - ./prepare_source_for_labs.sh ./ai/text-analysis/www/script.js
       - ./prepare_source_for_labs.sh ./ai/text-analysis/api.py
+      - ./prepare_source_for_labs.sh ./ai/face-detection/www/script.js
 
+      # Artifact bundling
       - cd $CODEBUILD_SRC_DIR/labs-src/ai/text-analysis/www
       - zip -r $CODEBUILD_SRC_DIR/aiml-workshops-text-analysis-www.zip .
       - cd $CODEBUILD_SRC_DIR/labs-src/ai/text-analysis
       - zip -r $CODEBUILD_SRC_DIR/aiml-workshops-text-analysis-api.zip api.py
+      - cd $CODEBUILD_SRC_DIR/labs-src/ai/face-detection/www
+      - zip -r $CODEBUILD_SRC_DIR/aiml-workshops-face-detection-www.zip .
 artifacts:
   secondary-artifacts:
     WorkshopResourcesArtifact:
       files:
         - $CODEBUILD_SRC_DIR/aiml-workshops-text-analysis-www.zip
+        - $CODEBUILD_SRC_DIR/aiml-workshops-face-detection-www.zip
       name: WorkshopResourcesArtifact
       discard-paths: yes
     WorkshopInfraArtifact:
