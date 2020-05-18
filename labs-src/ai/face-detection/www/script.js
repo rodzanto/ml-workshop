@@ -201,15 +201,6 @@ function processFrame(camWidth, camHeight) {
             });
             //@endExercise
         });
-
-        // Promise.all([labelsPromise, facesPromise, celebritiesPromise])
-        //     .catch(() => {
-        //         console.error('oops');
-        //     })
-        //     .then(() => {
-        //         console.log('done');
-        //         processFrame(camWidth, camHeight);
-        //     });
     });
 }
 
