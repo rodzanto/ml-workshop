@@ -147,6 +147,20 @@ function processFrame(camWidth, camHeight) {
     Webcam.snap(function(data_uri) {
         let imageBlob = dataURItoBlob(data_uri);
 
+        /*
+         * HINT: use the Rekognition SDK to detect labels in the captured
+         * frame. Remember that the frame is stored in the `imageBlob` variable
+         * that was declared above.
+         *
+         * Take a look at the `detectLabels()` method in the SDK documentation.
+         *
+         * The rendering of the labels has already been implemented, so you
+         * just need to call the `renderLabels()` function with the labels
+         * returned by Rekognition.
+         *
+         * Use the promise's success/error callbacks to either resolve or
+         * reject the promise, depending on the data returned by the API.
+         */
         let labelsPromise = new Promise((resolve, reject) => {
             //@beginExercise
             let detectLabelsParams = {
@@ -165,6 +179,14 @@ function processFrame(camWidth, camHeight) {
             //@endExercise
         });
 
+        /*
+         * HINT: Similar to the exercise above, this time we are interested in
+         * detecting faces.
+         *
+         * Faces are detected using the SDK's `detectFaces()` method, and can
+         * be rendered using the `renderFaces()` function that has already been
+         * implemented for you.
+         */
         let facesPromise = new Promise((resolve, reject) => {
             //@beginExercise
             let detectFacesParams = {
@@ -184,6 +206,13 @@ function processFrame(camWidth, camHeight) {
             //@endExercise
         });
 
+        /*
+         * HINT: Lastly, it's time to see if there's a celebrity lookalike in
+         * the frame.
+         *
+         * You can do this by invoking Rekognition's `recognizeCelebrities()`
+         * method. The renderer, as you can imagine, is `renderCelebrities()`.
+         */
         let celebritiesPromise = new Promise((resolve, reject) => {
             //@beginExercise
             let recognizeCelebritiesParams = {
@@ -201,6 +230,8 @@ function processFrame(camWidth, camHeight) {
             });
             //@endExercise
         });
+
+        return Promise.all([labelsPromise, facesPromise, celebritiesPromise]);
     });
 }
 
