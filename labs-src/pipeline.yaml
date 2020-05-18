@@ -206,3 +206,18 @@ Resources:
               InputArtifacts:
                 - Name: WorkshopInfraArtifact
               Name: DeployWorkshopInfra
+
+  Webhook:
+    Type: AWS::CodePipeline::Webhook
+    Properties:
+      AuthenticationConfiguration:
+        SecretToken: !Ref GitHubRepoOAuthToken
+      Filters:
+      - JsonPath: "$.ref"
+        MatchEquals: refs/heads/{Branch}
+      Authentication: GITHUB_HMAC
+      TargetPipeline: !Ref Pipeline
+      TargetAction: SourceAction
+      Name: ml-workshop-repo-webhook
+      TargetPipelineVersion: !GetAtt Pipeline.Version
+      RegisterWithThirdParty: 'true'
