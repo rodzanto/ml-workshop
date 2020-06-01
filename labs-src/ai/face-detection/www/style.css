@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  background-color: black;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header {
+  padding-bottom: 25px;
+}
+
+header img {
+  display: block;
+  margin: 0 auto;
+}
+
+#wrapper {
+  flex: none;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+#videoFrame {
+  flex: none;
+  height: 480px;
+  border:1px solid #333;
+}
+
+
+/* Celebrity */
+#celebrityMatch {
+  flex: none;
+  padding: 5px;
+  border: 1px solid #333;
+  border-top: none;
+}
+
+#celebrityMatch span {
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  font-family: monospace;
+  text-align: center;
+}
+
+#celebrityMatch .confidencePctBar {
+  width: 50%;
+  margin: 5px auto 0 auto;
+  border: 1px solid #070;
+}
+
+#celebrityMatch .confidencePctBarValue {
+  height: 5px;
+  background-color: #0f0;
+}
+/* End of celebrity */
+
+/* Labels */
+#labels {
+  flex: none;
+  width: 300px;
+  border: 1px solid #333;
+  border-left: none;
+}
+
+.label {
+  padding: 10px;
+}
+
+.label span {
+  color: #fff;
+  font-size: 15px;
+  font-family: monospace;
+}
+
+.confidencePctBar {
+  border: 1px solid #700;
+}
+
+.confidencePctBarValue {
+  height: 5px;
+  background-color: #f00;
+}
+/* End of labels */
+
+/* Face box */
+.facebox {
+  position: absolute;
+  border: 4px solid rgba(255, 153, 0, 1);
+}
+
+.emotion {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 10px);
+  padding: 5px;
+  background-color: rgba(255, 153, 0, 0.7);
+}
+
+.emotionName {
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+  font-family: monospace;
+}
+
+.emotion .confidencePctBar {
+  border: 1px solid #fff;
+}
+
+.emotion .confidencePctBarValue {
+  height: 5px;
+  background-color: #fff;
+}
+
+#faceboxes {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* End of face box */
+
+/*
+ * The following styles are currently unused but might be needed if we ever
+ * implement back the speech bubble feature.
+ */
+.speech-bubble .arrow {
+  border-style: solid;
+  position: absolute;
+}
+
+.bottom {
+    border-color: #c8c8c8 transparent transparent transparent;
+    border-width: 8px 8px 0px 8px;
+    bottom: -8px;
+}
+
+#box {
+  position:absolute;
+  visibility: hidden;
+  border-color: #eb0202;
+  border-width: 1px;
+  border-style: dotted;
+}
+
+#speechBubble {
+  position:absolute;
+  visibility: hidden;
+  opacity: 0.8;
+
+  width:270px;
+  height:30px;
+  padding:50px 40px;
+  margin:1em auto 80px;
+  text-align:center;
+  columns: #000000;
+  background:#ffffff;
+
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-border-top-left-radius:220px 120px;
+  -webkit-border-top-right-radius:220px 120px;
+  -webkit-border-bottom-right-radius:220px 120px;
+  -webkit-border-bottom-left-radius:220px 120px;
+  -moz-border-radius:220px / 120px;
+  border-radius:220px / 120px;
+
+  font-size:1.25em;
+  font-family: monospace;
+}
+
+/* creates the larger circle */
+#speechBubble:before {
+  content:"";
+  position:absolute;
+
+  bottom:-20px;
+  left:50px;
+  width:30px;
+  height:30px;
+  background:#ffffff;
+
+  -webkit-border-radius:30px;
+  -moz-border-radius:30px;
+  border-radius:30px;
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* creates the smaller circle */
+#speechBubble:after {
+  content:"";
+  position:absolute;
+
+  bottom:-30px;
+  left:30px;
+  width:15px;
+  height:15px;
+  background:#ffffff;
+
+  -webkit-border-radius:15px;
+  -moz-border-radius:15px;
+  border-radius:15px;
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+}
