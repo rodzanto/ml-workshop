@@ -23,8 +23,8 @@ Choose one of the labs below using the side bar on the left, and follow the inst
 | [Churn prediction with SageMaker](machine-learning/sagemaker-churn-prediction/1-step.md)            | Beginner | * SageMaker Notebook * SageMaker SDK * SageMaker Built-in Algorithms       |                |
 | [SageMaker debugger & model monitor](machine-learning/sagemaker-debug-monitor/1-step.md)         |  Advanced  | * SageMaker Debugger * SageMaker Monitor                                   |                |
 | [SageMaker multi-model endpoints monitoring](machine-learning/sagemaker-multi-model/1-step.md) |  Advanced  | * SageMaker Debugger * SageMaker Monitor * SageMaker Multi-model Endpoints |                |
-| [SageMaker HPO, autopilot, and experiments](machine-learning/sagemaker-auto-experiments/1-step.md)  |  Intermediate  | * SageMaker Auto-HPO * SageMaker Autopilot * SageMaker Experiments         |                |
-
+| [Autopilot on SageMaker Studio](machine-learning/sagemaker-autopilot-studio/1-lab.md)  |  Intermediate  | * SageMaker Autopilot * SageMaker Experiments         |                |
+| [Bring your own algorithm to Amazon SageMaker](machine-learning/sagemaker-byoa/1-step.md)         |  Advanced  | * SageMaker Notebook                                   |                |
 
 [**Lab #2: Explore the AWS Artificial Intelligence Services**](artificial-intelligence/2-overview.md)
 
