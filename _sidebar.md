@@ -9,6 +9,7 @@
     - [Bring your own algorithm to SageMaker](machine-learning/sagemaker-byoa/1-step.md)
     - [SageMaker multi-model endpoints](machine-learning/sagemaker-multi-model/1-step.md)
     - [Autopilot on SageMaker Studio](machine-learning/sagemaker-autopilot-studio/1-lab.md)
+    - [Autopilot with SageMaker SDK](machine-learning/sagemaker-autopilot-sdk/1-lab.md)
   - [**Lab #3: Deploy your ML workflows in production with AWS**](machine-learning/3-overview.md)
     - [MLOps workshop](machine-learning/sagemaker-mlops/1-step.md)
     - [Workflow with Data Science SDK](machine-learning/data-science-sdk-workflow/1-step.md)
