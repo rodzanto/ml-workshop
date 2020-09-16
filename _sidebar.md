@@ -25,6 +25,7 @@
     - [Text analysis with Textract and Comprehend](artificial-intelligence/text-analysis-textract-comprehend/01-lab.md)
     - [Polly podcast](artificial-intelligence/polly-podcast/1-step.md)
     - [Basic Lex bot](artificial-intelligence/lex-bot/1-step.md)
+    - [Amazon Polly Builder](artificial-intelligence/amazon-polly-builder/README.md)
 
 
 - [Changelog](changelog.md)

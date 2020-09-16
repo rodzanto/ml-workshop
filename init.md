@@ -38,6 +38,7 @@ Choose one of the labs below using the side bar on the left, and follow the inst
 | [Textract and Comprehend for documents analysis](artificial-intelligence/textract-comprehend-documents/1-step.md)                   | Intermediate | * Textract Text Extraction * Comprehend Entity Detection * Elasticsearch indexing      |                |
 | [Polly podcast](artificial-intelligence/polly-podcast/1-step.md)                   | Beginner | * Polly Text-to-speech      |                |
 | [Basic Lex bot](artificial-intelligence/lex-bot/1-step.md)                   | Intermediate | * Lex Chatbot       |                |
+| [Amazon Polly Builder](artificial-intelligence/amazon-polly-builder/README.md)                   | Beginner | * Amazon Polly Speech Builder       |                |
 
 
 
