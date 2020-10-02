@@ -9,6 +9,12 @@ Parameters:
 Resources:
   UploadBucket:
     Type: AWS::S3::Bucket
+    Properties:
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: [ '*' ]
+            AllowedMethods: [ 'GET', 'POST', 'PUT', 'DELETE' ]
+            AllowedOrigins: [ '*' ]
 
   ApiFunctionExecutionRole:
     Type: AWS::IAM::Role
