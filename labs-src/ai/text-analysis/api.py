@@ -5,8 +5,10 @@ import urllib3
 #
 # HINT: instantiate the Boto3 clients for each service.
 #
+#@beginExercise
 textract = boto3.client('textract')
 comprehend = boto3.client('comprehend')
+#@endExercise
 
 http = urllib3.PoolManager()
 
