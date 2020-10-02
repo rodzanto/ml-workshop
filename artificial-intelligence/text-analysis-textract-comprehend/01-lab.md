@@ -174,6 +174,8 @@ def analyze_text(text):
     return {'Language': language, 'SentimentAnalysis': sentiment, 'Entities': list(entities)}
 ```
 
+Click **Deploy** to begin using the new version of your Lambda function.
+
 </details>
 
 ## Testing the whole thing
@@ -182,7 +184,7 @@ That's it! If you try the web application one more time, everything should work.
 
 ![Velveteen Rabbit](velveteen_rabbit.jpg)
 
-After clicking **Analyze**, the _Text analysis_ section should show the sentiment of the text, and the _Related Wikipedia articles_ should show a link to _Margery Williams Bianco_, the author of the book and whose name appears at the top of the picture:
+Download it to your computer and use it to fill the form. After clicking **Analyze**, the _Text analysis_ section should show the sentiment of the text, and the _Related Wikipedia articles_ should show a link to _Margery Williams Bianco_, the author of the book and whose name appears at the top of the picture:
 
 ![Results](analysis_results.png)
 
