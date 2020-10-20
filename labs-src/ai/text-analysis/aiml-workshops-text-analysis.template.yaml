@@ -47,13 +47,6 @@ Resources:
   Api:
     Type: AWS::ApiGatewayV2::Api
     Properties:
-      CorsConfiguration:
-        AllowHeaders:
-          - '*'
-        AllowMethods:
-          - '*'
-        AllowOrigins:
-          - '*'
       Name: AIServicesWorkshop-TextAnalysis-Api
       ProtocolType: HTTP
       Target: !GetAtt ApiFunction.Arn

@@ -108,7 +108,7 @@ function analyzeText(text) {
 			{
 				type: 'POST',
 				contentType: 'application/json',
-				data: JSON.stringify({'text': text}),
+				data: JSON.stringify({'text': text.Text}),
 				error: (jqXHR, status, errorThrown) => {reject(status)},
 				success: (data, status) => {resolve(data)}
 			}
@@ -142,18 +142,17 @@ function renderSentimentAnalysisResults(results) {
 function renderWikipediaResults(results) {
 	var resultsDiv = $('#wikiSearchResults');
 	resultsDiv.html('');
-
 	results.forEach(result => {
+    var res = JSON.parse(result);
 		var htmlTemplate =
 			'<li class="media mb-3">'
 				+ '<div class="media-body">'
-					+ `<h5 class="mt-0 mb-1"><a href="https://en.wikipedia.org/wiki/${result.title}">${result.title}</a></h5>`
-					+ result.snippet + '...'
+					+ `<h5 class="mt-0 mb-1"><a href="https://en.wikipedia.org/wiki/${res.title}">${res.title}</a></h5>`
+					+ res.snippet + '...'
 				+ '</div>'
 			+ '</li>'
 		resultsDiv.append($(htmlTemplate));
 	});
-
 	resultsDiv.css('display', 'block');
 }
 
@@ -170,8 +169,9 @@ function submitForm(event) {
 
 	uploadFileToS3(file, bucketName)
 		.then(data => extractText(data.Bucket, data.Key))
-		.then(data => data.Text)
-		.then(analyzeText)
+    .then(data => JSON.parse(data))
+		.then(data => analyzeText(data))
+    .then(data => JSON.parse(data))
 		.then(data => {
 			renderSentimentAnalysisResults(data.SentimentAnalysis);
 
@@ -179,7 +179,8 @@ function submitForm(event) {
 			data.Entities.forEach(entity => promises.push(queryWikipedia(entity.Text)));
 			return Promise.all(promises);
 		})
-		.then(renderWikipediaResults)
+
+		.then(data => renderWikipediaResults(data))
 		.then(() => {
 			$('.loading').css('display', 'none');
 			showSuccess('Nice! Your document was processed.');
