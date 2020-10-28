@@ -147,7 +147,7 @@ After the __Analyzing data__ phase is completed, two new controls will be enable
 
 ![Notebook controls](sm-autopilot-7.png)
 
-* __Open data exploration notebook__: this button opens the _Amazon SageMaker Autopilot Data Exploration_, where general daatset statistics are extracted and the problem type is defined.
+* __Open data exploration notebook__: this button opens the _Amazon SageMaker Autopilot Data Exploration_, where general dataset statistics are extracted and the problem type is defined.
 
 > Explore the data exploration notebook to better understand the source dataset.
 
