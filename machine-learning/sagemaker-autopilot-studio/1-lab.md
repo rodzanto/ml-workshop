@@ -210,7 +210,7 @@ Once the Autopilot job is in the __Completed__ state, go to the experiment tab a
 
 * Choose the best currently available trial and click on the __Deploy model__ button.
 * Fill the required fields for the real time model deployment:
-  * Deployment name: _sm-autopilot-lab_
+  * Endpoint name: _sm-autopilot-lab_
   * Instance type: _ml.m5.large_
   * Instance count: _1_
 
