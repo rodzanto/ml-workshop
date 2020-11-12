@@ -58,7 +58,7 @@ Now that your SageMaker Studio is open, you will get the notebook that we will b
 * Click on "Image Terminal" to open a new terminal tab.
 * Copy-paste the following command in the terminal and hit enter. This will copy the notebook to your Studio local environment.
     ``` javascript
-    wget https://github.com/rodzanto/ml-workshop/blob/master/machine-learning/sagemaker-autopilot-sdk/sagemaker_autopilot_direct_marketing.ipynb
+    wget https://github.com/rodzanto/ml-workshop/raw/master/machine-learning/sagemaker-autopilot-sdk/sagemaker_autopilot_direct_marketing.ipynb
     ```
 
 ![screen4](screen4.png)
