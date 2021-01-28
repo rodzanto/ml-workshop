@@ -43,8 +43,10 @@ Open **script.js** with a text editor or IDE. Notice how at the top of the file,
 ```js
 // The AWS API credentials needed to successfully call AWS services.
 // You can create these from the IAM console.
+//If you are on an AWS workshop you can also get those details from your Event Engine console.
 var awsAccessKeyId = '';
 var awsSecretAccessKey = '';
+var awsSessionToken = '';
 
 // The region in which to operate (eu-west-1, us-east-1, etc.).
 var awsRegion = '';
@@ -74,6 +76,7 @@ var s3Client = new AWS.S3(
 	{
 		accessKeyId: awsAccessKeyId,
 		secretAccessKey: awsSecretAccessKey,
+		sessionToken: awsSessionToken,
 		region: awsRegion
 	}
 );
