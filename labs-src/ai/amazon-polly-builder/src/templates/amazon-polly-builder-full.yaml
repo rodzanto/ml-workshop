@@ -91,32 +91,33 @@ Resources:
       Code:
         ZipFile: |
 
-          import boto3, json, os, re
+          import boto3, json, os, re, zipfile
           import cfnresponse
 
           s3 = boto3.client('s3')
           s3_resource = boto3.resource('s3')
 
           def handler(event, context):
-              print(event)
-              new_bucket_name = os.environ['resourcesbucket']
-              bucket_to_copy = "amazon-polly-demo"
+            print(event)
+            new_bucket_name = os.environ['resourcesbucket']
+            bucket_to_copy = "amazon-polly-demo"
+            bucket = s3_resource.Bucket(new_bucket_name)
+            s3_resource.Object('amazon-polly-demo', 'assets.txt').download_file('/tmp/assets.txt')
+            assets = open("/tmp/assets.txt", "r").read().split('\n')
 
-              for key in s3.list_objects(Bucket=bucket_to_copy)['Contents']:
-                match = re.search('zip|yaml',key['Key'])
-                if not match:
-                  files = key['Key']
-                  copy_source = {'Bucket': bucket_to_copy,'Key': files}
-                  s3_resource.meta.client.copy(copy_source, new_bucket_name, files)
+            for line in assets:
+              print(line)
+              copy_source = {'Bucket': bucket_to_copy,'Key': line}
+              s3_resource.meta.client.copy(copy_source, new_bucket_name, line)
 
-              file_name = "api-gateway-endpoint.js"
-              lambda_path = "/tmp/" + file_name
-              s3_path = "js/" + file_name
-              text = "const apiEndpoint=\\'"+os.environ["url"]+"\\'\;"
-              os.system("echo " + text +  ">"+lambda_path)
-              s3.upload_file(lambda_path, new_bucket_name, s3_path)
-              responseData = {}
-              cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData)
+            file_name = "api-gateway-endpoint.js"
+            lambda_path = "/tmp/" + file_name
+            s3_path = "js/" + file_name
+            text = "const apiEndpoint=\\'"+os.environ["url"]+"\\'\;"
+            os.system("echo " + text +  ">"+lambda_path)
+            s3.upload_file(lambda_path, new_bucket_name, s3_path)
+            responseData = {}
+            cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData)
 
       Handler: index.handler
       Role:
