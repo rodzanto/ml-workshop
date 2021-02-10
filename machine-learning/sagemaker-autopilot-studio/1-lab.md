@@ -107,17 +107,21 @@ For this matter, go to the Experiments tab on the left side of the screen, and c
 1. Fill in the experiment parameters as follows:
 
 * Experiment name: _sm-autopilot-lab_
-* Input data location:
+* Connect your data:
   * Select _Find S3 bucket_
-  * Choose S3 bucket name _s3://sm-autopilot-lab-YOUR_ACCOUNT_ID_
-  * Select S3 object key prefix _bank-additional-full.csv_
+  * Under S3 bucket name, select _s3://sm-autopilot-lab-YOUR_ACCOUNT_ID_
+  * Under Dataset file name, choose _bank-additional-full.csv_
 
-* Target attribute name: _y_
+* Is your S3 input a manifest file? _No (disabled_)
+
+* Target: _y_
+
+> This is the target attribute is the attribute in your dataset that you want Amazon SageMaker Autopilot to make predictions for.
 
 * Output data location:
   * Choose _Find S3 bucket_
-  * Choose S3 bucket name _s3://sm-autopilot-lab-YOUR_ACCOUNT_ID_
-  * Type S3 object key prefix _output_
+  * Under S3 bucket name, select _s3://sm-autopilot-lab-YOUR_ACCOUNT_ID_
+  * Under Dataset directory name, type the prefix _output_
 
 * Select the machine learning problem type:
   * _Auto_ or _Binary classification_
@@ -135,7 +139,7 @@ For this matter, go to the Experiments tab on the left side of the screen, and c
 
 The SageMaker Autopilot job consists of the following high-level steps:
 
-* __Analyzing Data__, where the dataset is analyzed and Autopilot comes up with a list of ML pipelines that should be tried out on the dataset. The dataset is also split into train and validation sets.
+* __Analyzing Data__, where the dataset is analyzed (_Pre-processing_) and Autopilot comes up with a list of ML pipelines (_Candidate Definitions_) that should be tried out on the dataset. The dataset is also split into train and validation sets.
 * __Feature Engineering__, where Autopilot performs feature transformation on individual features of the dataset as well as at an aggregate level.
 * __Model Tuning__, where the top performing pipeline is selected along with the optimal hyperparameters for the training algorithm (the last stage of the pipeline).
 
@@ -143,7 +147,7 @@ The SageMaker Autopilot job consists of the following high-level steps:
 
 ### Explore the generated notebooks
 
-After the __Analyzing data__ phase is completed, two new controls will be enabled on the Autopilot job window.
+After the __Candidate Definitions Generated__ phase is completed, two new controls will be enabled on the Autopilot job window.
 
 ![Notebook controls](sm-autopilot-7.png)
 
@@ -153,9 +157,9 @@ After the __Analyzing data__ phase is completed, two new controls will be enable
 
 ![Data exploration notebook](sm-autopilot-8.png)
 
-* __Open candidate definition notebook__: this button opens the _Amazon SageMaker Autopilot Candidate Definition Notebook_, that can be used to interactively step through the various steps taken by the Sagemaker Autopilot to arrive at the best candidate. This notebook can also be used to override various runtime parameters like parallelism, hardware used, algorithms explored, feature extraction scripts and more.
+* __Open candidate generation notebook__: this button opens the _Amazon SageMaker Autopilot Candidate Definition Notebook_, that can be used to interactively step through the various steps taken by the Sagemaker Autopilot to arrive at the best candidate. This notebook can also be used to override various runtime parameters like parallelism, hardware used, algorithms explored, feature extraction scripts and more.
 
-> Explore the candidate definition notebook to to understand how Autopilot generates various experiments to extract features and train the model, and finally does a multi-algorithm hyperparameter tuning.
+> Explore the candidate generation notebook to to understand how Autopilot generates various experiments to extract features and train the model, and finally does a multi-algorithm hyperparameter tuning.
 
 A SageMaker AutoPilot model candidate consists of two fundamental components: a preprocessor and an algorithm. The preprocessor defines a data transformation strategy, and the algorithm determines which specific ML approach will be used for that model candidate. Both the preprocessor and the algorithm have configurable hyperparameters that change the way the component works. These hyperparameters will be optimized later in the Experiment process as part of an automated hyperparameter tuning job.
 
