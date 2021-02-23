@@ -24,7 +24,9 @@ Choose one of the labs below using the side bar on the left, and follow the inst
 | [SageMaker debugger & model monitor](machine-learning/sagemaker-debug-monitor/1-step.md)         |  Advanced  | * SageMaker Debugger * SageMaker Monitor                                   |                |
 | [SageMaker multi-model endpoints monitoring](machine-learning/sagemaker-multi-model/1-step.md) |  Advanced  | * SageMaker Debugger * SageMaker Monitor * SageMaker Multi-model Endpoints |                |
 | [Autopilot on SageMaker Studio](machine-learning/sagemaker-autopilot-studio/1-lab.md)  |  Intermediate  | * SageMaker Autopilot * SageMaker Experiments         |                |
+| [Autopilot with SageMaker SDK](machine-learning/sagemaker-autopilot-sdk/1-lab.md)  |  Intermediate  | * SageMaker Autopilot * SageMaker Experiments         |                |
 | [Bring your own algorithm to Amazon SageMaker](machine-learning/sagemaker-byoa/1-step.md)         |  Advanced  | * SageMaker Notebook                                   |                |
+| [Use SageMaker for model explainability](machine-learning/sagemaker-explainability/1-lab.md)         |  Intermediate  | * SageMaker Clarify                                   |                |
 
 [**Lab #2: Explore the AWS Artificial Intelligence Services**](artificial-intelligence/2-overview.md)
 
