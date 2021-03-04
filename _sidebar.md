@@ -11,6 +11,7 @@
     - [Autopilot on SageMaker Studio](machine-learning/sagemaker-autopilot-studio/1-lab.md)
     - [Autopilot with SageMaker SDK](machine-learning/sagemaker-autopilot-sdk/1-lab.md)
     - [Explainability with SageMaker](machine-learning/sagemaker-explainability/1-lab.md)
+    - [End-to-End with SageMaker DataWrangler, Feature Store, Clarify, Pipelines](machine-learning/sagemaker-end-to-end/1-lab.md)
   - [**Lab #3: Deploy your ML workflows in production with AWS**](machine-learning/3-overview.md)
     - [MLOps workshop](machine-learning/sagemaker-mlops/1-step.md)
     - [Workflow with Data Science SDK](machine-learning/data-science-sdk-workflow/1-step.md)

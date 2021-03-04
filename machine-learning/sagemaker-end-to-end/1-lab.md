@@ -4,6 +4,7 @@ In this lab, we will address business problems regarding auto insurance fraud, t
 
 During the lab we will explore the following functionalities:
 * Amazon SageMaker Studio
+* Amazon SageMaker Data Wrangler
 * Amazon SageMaker Feature Store
 * Amazon SageMaker Training Jobs
 * Amazon SageMaker Clarify
