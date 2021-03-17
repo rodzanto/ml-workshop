@@ -44,12 +44,14 @@ Now that your SageMaker Studio is open, you will get the notebook that we will b
     git clone https://github.com/aws/amazon-sagemaker-examples/
     ```
 
-* In the left menu go to the **"File Browser"** (folder icon at the top-left).
-* Double click the new folder ***"amazon-sagemaker-examples"***
-* Double click the folder ***"sagemaker-pipelines"***
-* Double click the folder ***"tabular"***
-* Double click the folder ***"abalone_build_train_deploy"***
-* Double click the first notebook file called ***"sagemaker-pipelines-preprocess-train-evaluate-batch-transform.ipynb"***. The notebook will open on a new tab.
+![Git clone](screen8.png)
+
+* In the left menu you should see the **"File Browser"** tab (the folder icon at the top-left).
+* Double click in the new folder: ***"amazon-sagemaker-examples"***
+* Double click the folder: ***"sagemaker-pipelines"***
+* Double click the folder: ***"tabular"***
+* Double click the folder: ***"abalone_build_train_deploy"***
+* Finally, double click the notebook file called: ***"sagemaker-pipelines-preprocess-train-evaluate-batch-transform.ipynb"***. The notebook will open on a new tab.
 * In the select kernel pop-up, select "Python (Data Science)".
 
 ![data-science](screen6.png)
