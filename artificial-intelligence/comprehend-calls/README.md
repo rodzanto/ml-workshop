@@ -1,4 +1,4 @@
-![Banner](src/Images/banner.png)
+![Banner](Images/banner.png)
 
 Welcome to this AWS Comprehend Calls Demo. The objective of this demo is deploy an MVP for a solution which is able to transcribe and extract insights from audio files, like contact center calls. 
 
@@ -13,7 +13,7 @@ As mentioned before, the objective is for you to have a demo solution to transcr
 
 First, let's have a look at the infrastructure you are going to be able to deploy and the services you are going to use.
 
-![Architecture](src/Images/architecture.png)
+![Architecture](Images/architecture.png)
 
 
 #### 1. Store your audios 
@@ -33,7 +33,7 @@ After the audio file is sent to Amazon S3, an AWS Lambda Function is triggered, 
 
 [AWS Step Functions](https://aws.amazon.com/step-functions/) is a fully managed service that makes it easy to coordinate the components of distributed applications and microservices using visual workflows.
 
-![Architecture](src/Images/statemachine.png)
+![Architecture](Images/statemachine.png)
 
 The workflow goes through the following stages:
 
@@ -74,7 +74,7 @@ Here is an example of the manifest you will have to use to each folder of data:
 ```
 
 
-![Visualization](src/Images/quicksight.png)
+![Visualization](Images/quicksight.png)
 
 ### How do I build this?
 
