@@ -1,4 +1,4 @@
-![Banner](./images/banner.jpg)
+![Banner](images/banner.jpg)
 
 ### Why am I here? 
 Welcome to the Translate Sentiments Demo. As you may or may not know, you can use Amazon Translate to translate text and files, and Amazon Comprehend to obtain insights from text. Amazon Comprehend is currently available for the [following languages](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html), and you may want to extract information from a non supported language. The objective of this demo is for you to combine both services and obtain insights from any language supported by Amazon Translate. 
@@ -18,7 +18,7 @@ As mentioned before, the objective is for you to test Amazon Translate and Amazo
 
 If you choose to deploy this semi-automated infrastructure, Amazon API Gateway and AWS Lambda (with the appropriate role to call Amazon Polly) will be deployed and configured. You will also have to open the static assets locally on your computer and make a small change in the code which I will specify you later.
 
-![Semi-Automated](./images/local-infra.jpg)
+![Semi-Automated](images/local-infra.jpg)
 
 * **Step 1:** Deploy the AWS Infrastructure:
   * [Launch](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://aidemos-translatesentiments.s3.eu-west-1.amazonaws.com/translatesentiments-local.yaml&stackName=Translate-Sentiments-Demo) the following **AWS CloudFormation Template** in your account (The link will automatically open the AWS CloudFormation console).
@@ -41,4 +41,4 @@ If you choose to deploy this semi-automated infrastructure, Amazon API Gateway a
 
 If you followed correctly the previous steps you should be able to see the Translate Sentiments Panel.
 
-![Translate Sentiments Panel](./images/test-view.jpg)
+![Translate Sentiments Panel](images/test-view.jpg)
