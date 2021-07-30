@@ -29,6 +29,8 @@
     - [Polly podcast](artificial-intelligence/polly-podcast/1-step.md)
     - [Basic Lex bot](artificial-intelligence/lex-bot/1-step.md)
     - [Amazon Polly Builder](artificial-intelligence/amazon-polly-builder/README.md)
+    - [Comprehend Calls](artificial-intelligence/comprehend-calls/README.md)
+    - [Translate Sentiments](artificial-intelligence/translate-sentiments/README.md)
 
 
 - [Changelog](changelog.md)

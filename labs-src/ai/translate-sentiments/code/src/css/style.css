@@ -1,0 +1,17 @@
+td, th {
+    text-align: center;
+    vertical-align: middle;
+    font-size: small;
+}
+
+thead th {font-size: medium;}
+
+table{
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.table input{
+    width: 100%;
+    font-size: small;
+}

@@ -1,0 +1,479 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: "AWS::Serverless-2016-10-31"
+
+Description: >
+  Comprehend Calls with AWS AI Services Template.
+
+Parameters:
+
+  InputS3BucketName:
+    Type: String
+    Description: The S3 bucket where your audio assets will be stored. Select a unique name.
+    Default: "your-unique-bucket-name"
+
+  OutputS3BucketName:
+    Type: String
+    Description: The S3 bucket where your transcriptions and insights will be stored. Select a unique name.
+    Default: "your-unique-bucket-name"
+
+  InsightsDynamoTableName:
+    Type: String
+    Description: The DynamoDB Table where your transcriptions insights will be stored. Select a unique name.
+    Default: "your-unique-table-name"
+
+  StateMachineName:
+    Type: String
+    Description: The name you want to assign to the Step Funcions State Machine. Select a unique name.
+    Default: "your-unique-statemachine-name"
+
+  #TranscribeMultipleSpeakers:
+  #  Type: String
+  #  Default: 'No'
+  #  AllowedValues:
+  #    - 'No'
+  #    - 'Yes'
+  #  Description: Enable multiple speaker transcription.
+
+Resources:
+
+  # Amazon Simple Storage Service (S3) Buckets
+
+  S3InputBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref InputS3BucketName
+
+  S3OutputBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref OutputS3BucketName
+
+  # Amazon DynamoDB Table
+
+  InsightsTableDynamoDB:
+    Type: AWS::DynamoDB::Table
+    DependsOn: S3InputBucket
+    Properties:
+      TableName: !Ref InsightsDynamoTableName
+      ProvisionedThroughput:
+        ReadCapacityUnits: "5"
+        WriteCapacityUnits: "5"
+      AttributeDefinitions:
+        - AttributeName: "TranscriptionId"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "TranscriptionId"
+          KeyType: "HASH"
+
+  #AWS Lambda Functions
+
+  #0 - Create audios folder
+
+  CustomResourceLambdaRole:
+    Type: AWS::IAM::Role
+    DependsOn: S3InputBucket
+    Properties:
+      AssumeRolePolicyDocument: {
+        "Version": "2012-10-17",
+        "Statement": [ {
+                         "Effect": "Allow",
+                         "Principal": {
+                           "Service": [ "lambda.amazonaws.com" ]
+                         },
+                         "Action": [ "sts:AssumeRole" ]
+                       } ]
+      }
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AWSLambdaFull_Access
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+      RoleName: !Sub "${InputS3BucketName}-custom-role"
+
+  LambdaHelperFunction:
+    Type: AWS::Lambda::Function
+    DependsOn: CustomResourceLambdaRole
+    Properties:
+      FunctionName: !Sub 'CC-${InputS3BucketName}-HelperFunction'
+      Code:
+        ZipFile: |
+
+          import boto3, json, os
+          import cfnresponse
+          client = boto3.client('s3')
+
+          def handler(event, context):
+              bucket_name = os.environ['inputbucket']
+              client.put_object(Bucket=bucket_name, Key="audios/")
+              responseData = {}
+              cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData)
+
+      Handler: index.handler
+      Role:
+        Fn::GetAtt:
+          - CustomResourceLambdaRole
+          - Arn
+      Runtime: python3.8
+      Timeout: 60
+      Environment:
+        Variables:
+          inputbucket: !Ref InputS3BucketName
+
+  LambdaFirstInvoke:
+    Type: AWS::CloudFormation::CustomResource
+    DependsOn: LambdaHelperFunction
+    Version: "1.0"
+    Properties:
+      ServiceToken: !GetAtt LambdaHelperFunction.Arn
+
+
+
+
+  #1 - Trigger on S3 Object Creation
+
+  ## Lambda Role For CC-S3-Trigger Function
+
+  S3TriggerLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument: {
+        "Version": "2012-10-17",
+        "Statement": [ {
+                         "Effect": "Allow",
+                         "Principal": {
+                           "Service": [ "lambda.amazonaws.com" ]
+                         },
+                         "Action": [ "sts:AssumeRole" ]
+                       } ]
+      }
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AWSStepFunctionsFullAccess
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+      RoleName: "CC-S3TriggerLambdaRole"
+
+    ## Lambda Function
+
+  S3TriggerLambda:
+    Type: AWS::Serverless::Function
+    DependsOn: S3TriggerLambdaRole
+    Properties:
+      FunctionName: "CC-S3-Trigger-Function"
+      CodeUri: "s3://comprehendcallsrepo/cc-s3-trigger-lambda.zip"
+      Handler: "index.lambda_handler"
+      Runtime: "python3.8"
+      Timeout: 5
+      Role:
+        Fn::GetAtt:
+          - S3TriggerLambdaRole
+          - Arn
+      Environment:
+        Variables:
+          StateMachineName: !Ref StateMachineName
+          AccountId: !Ref AWS::AccountId
+
+      Events:
+        NewAudioEvent:
+          Type: S3
+          Properties:
+            Bucket: !Ref S3InputBucket
+            Events: s3:ObjectCreated:*
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix      # or "suffix"
+                    Value: "audios/"      # The value to search for in the S3 object key names
+                  - Name: suffix      # or "suffix"
+                    Value: ".mp3"      # The value to search for in the S3 object key names
+        NewAudioEvent2:
+          Type: S3
+          Properties:
+            Bucket: !Ref S3InputBucket
+            Events: s3:ObjectCreated:*
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix      # or "suffix"
+                    Value: "audios/"      # The value to search for in the S3 object key names
+                  - Name: suffix      # or "suffix"
+                    Value: ".wav"      # The value to search for in the S3 object key names
+
+
+  # 2 - Transcribe Audio File
+
+  ## Lambda Role For CC-Transcription Function
+
+  TranscriptionLambdaRole:
+    Type: AWS::IAM::Role
+    DependsOn: S3TriggerLambda
+    Properties:
+      AssumeRolePolicyDocument: {
+        "Version": "2012-10-17",
+        "Statement": [ {
+                         "Effect": "Allow",
+                         "Principal": {
+                           "Service": [ "lambda.amazonaws.com" ]
+                         },
+                         "Action": [ "sts:AssumeRole" ]
+                       } ]
+      }
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AmazonTranscribeFullAccess
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+      RoleName: "CC-TranscriptionLambdaRole"
+
+  ## Transcription Lambda Function
+
+  TranscriptionLambda:
+    Type: AWS::Serverless::Function
+    DependsOn: TranscriptionLambdaRole
+    Properties:
+      FunctionName: "CC-Transcription-Function"
+      CodeUri: "s3://comprehendcallsrepo/cc-transcribe-lambda.zip"
+      Handler: "index.lambda_handler"
+      Runtime: "python3.8"
+      Timeout: 600
+      Role:
+        Fn::GetAtt:
+          - TranscriptionLambdaRole
+          - Arn
+      Environment:
+        Variables:
+          #MultipleSpeakers: !Ref TranscribeMultipleSpeakers
+          OutputBucket: !Ref OutputS3BucketName
+
+  # 3 - Comprehend Insights
+
+  ## Lambda Role For CC-Comprehend-Insights Function
+
+  ComprehendLambdaRole:
+    Type: AWS::IAM::Role
+    DependsOn: TranscriptionLambda
+    Properties:
+      AssumeRolePolicyDocument: {
+        "Version": "2012-10-17",
+        "Statement": [ {
+                         "Effect": "Allow",
+                         "Principal": {
+                           "Service": [ "lambda.amazonaws.com" ]
+                         },
+                         "Action": [ "sts:AssumeRole" ]
+                       } ]
+      }
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/ComprehendFullAccess
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+      RoleName: "CC-ComprehendLambdaRole"
+
+  ## Comprehend Lambda Function
+
+  ComprehendLambda:
+    Type: AWS::Serverless::Function
+    DependsOn: ComprehendLambdaRole
+    Properties:
+      FunctionName: "CC-Comprehend-Insights-Function"
+      CodeUri: "s3://comprehendcallsrepo/cc-comprehend-lambda.zip"
+      Handler: "index.lambda_handler"
+      Runtime: "python3.8"
+      Timeout: 300
+      Role:
+        Fn::GetAtt:
+          - ComprehendLambdaRole
+          - Arn
+      Environment:
+        Variables:
+          OutputBucketName: !Ref OutputS3BucketName
+
+  # 4 - Dynamo Results
+
+  ## Lambda Role For CC-DDB-Results Function
+
+  DDBResultsLambdaRole:
+    Type: AWS::IAM::Role
+    DependsOn: ComprehendLambda
+    Properties:
+      AssumeRolePolicyDocument: {
+        "Version": "2012-10-17",
+        "Statement": [ {
+                         "Effect": "Allow",
+                         "Principal": {
+                           "Service": [ "lambda.amazonaws.com" ]
+                         },
+                         "Action": [ "sts:AssumeRole" ]
+                       } ]
+      }
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      RoleName: "CC-DDB-ResultsLambdaRole"
+
+  ## DDBResults Lambda Function
+
+  DDBResultsLambda:
+    Type: AWS::Serverless::Function
+    DependsOn: DDBResultsLambdaRole
+    Properties:
+      FunctionName: "CC-DDB-Results-Function"
+      CodeUri: "s3://comprehendcallsrepo/cc-dynamo-lambda.zip"
+      Handler: "index.lambda_handler"
+      Runtime: "python3.8"
+      Timeout: 10
+      Role:
+        Fn::GetAtt:
+          - DDBResultsLambdaRole
+          - Arn
+      Environment:
+        Variables:
+          DynamoTableName: !Ref InsightsDynamoTableName
+
+
+  # 5 - S3 Results
+
+  ## Lambda Role For CC-S3-Results Function
+
+  S3ResultsLambdaRole:
+    Type: AWS::IAM::Role
+    DependsOn: DDBResultsLambda
+    Properties:
+      AssumeRolePolicyDocument: {
+        "Version": "2012-10-17",
+        "Statement": [ {
+                         "Effect": "Allow",
+                         "Principal": {
+                           "Service": [ "lambda.amazonaws.com" ]
+                         },
+                         "Action": [ "sts:AssumeRole" ]
+                       } ]
+      }
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      RoleName: "CC-S3-ResultsLambdaRole"
+
+  ## S3Results Lambda Function
+
+  S3ResultsLambda:
+    Type: AWS::Serverless::Function
+    DependsOn: S3ResultsLambdaRole
+    Properties:
+      FunctionName: "CC-S3-Results-Function"
+      CodeUri: "s3://comprehendcallsrepo/cc-s3-results-lambda.zip"
+      Handler: "index.lambda_handler"
+      Runtime: "python3.8"
+      Timeout: 10
+      Role:
+        Fn::GetAtt:
+          - S3ResultsLambdaRole
+          - Arn
+      Environment:
+        Variables:
+          OutputBucket: !Ref OutputS3BucketName
+
+
+  #AWS Step Functions
+
+  StateMachineRole:
+    Type: "AWS::IAM::Role"
+    DependsOn: S3ResultsLambda
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - !Sub states.${AWS::Region}.amazonaws.com
+            Action: "sts:AssumeRole"
+      Path: "/"
+      RoleName: "CC-StateMachineRole"
+      Policies:
+        - PolicyName: StatesExecutionPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "lambda:InvokeFunction"
+                Resource: "*"
+
+  StateMachine:
+    Type: AWS::StepFunctions::StateMachine
+    DependsOn: StateMachineRole
+    Properties:
+      StateMachineName: !Ref StateMachineName
+      DefinitionString:
+        !Sub
+        - |-
+          {
+            "StartAt": "TranscribeAudio",
+              "States": {
+                "TranscribeAudio": {
+                  "Type": "Task",
+                  "Resource": "${lambdaTranscribeArn}",
+                  "Parameters": {
+                    "bucket_name.$": "$.bucket_name",
+                    "file_key.$": "$.file_key"
+                  },
+                  "Next": "ComprehendText"
+                },
+                "ComprehendText": {
+                  "Type": "Task",
+                  "Resource": "${lambdaComprehendArn}",
+                  "Parameters": {
+                    "transcribeUri.$": "$.transcribeUri"
+                  },
+                  "Next": "StoreResults"
+                },
+                "StoreResults":{
+                  "Type": "Parallel",
+                  "End": true,
+                  "Branches": [
+                    {
+                     "StartAt": "ResultsDynamo",
+                     "States": {
+                       "ResultsDynamo": {
+                         "Type": "Task",
+                          "Resource": "${lambdaDynamoArn}",
+                          "Parameters": {
+                            "comprehendResults_ddb.$": "$.comprehendResults_ddb"
+                          },
+                         "End": true
+                       }
+                     }
+                   },
+                   {
+                     "StartAt": "ResultsS3",
+                     "States": {
+                       "ResultsS3": {
+                         "Type": "Task",
+                         "Resource": "${lambdaS3RArn}",
+                         "Parameters": {
+                            "comprehendResults_s3.$": "$.comprehendResults_s3",
+                            "transcriptionid.$": "$.transcriptionid"
+                          },
+                         "End": true
+                       }
+                     }
+                   }
+                  ]
+                }
+              }
+          }
+        - {
+          lambdaTranscribeArn: !GetAtt [ TranscriptionLambda, Arn ],
+          lambdaComprehendArn: !GetAtt [ ComprehendLambda, Arn ],
+          lambdaDynamoArn: !GetAtt [ DDBResultsLambda, Arn ],
+          lambdaS3RArn: !GetAtt [ S3ResultsLambda, Arn ]
+        }
+      RoleArn:
+        Fn::GetAtt:
+          - StateMachineRole
+          - Arn
+
+Outputs:
+  InputBucket:
+    Description: Store your audio files in the "audios" folder inside this bucket.
+    Value: !Ref S3InputBucket
