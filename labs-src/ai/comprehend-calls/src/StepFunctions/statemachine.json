@@ -1,0 +1,55 @@
+{
+  "StartAt": "TranscribeAudio",
+  "States": {
+    "TranscribeAudio": {
+      "Type": "Task",
+      "Resource": "${lambdaTranscribeArn}",
+      "Parameters": {
+        "bucket_name.$": "$.bucket_name",
+        "file_key.$": "$.file_key"
+      },
+      "Next": "ComprehendText"
+    },
+    "ComprehendText": {
+      "Type": "Task",
+      "Resource": "${lambdaComprehendArn}",
+      "Parameters": {
+        "transcribeUri.$": "$.transcribeUri"
+      },
+      "Next": "StoreResults"
+    },
+    "StoreResults":{
+      "Type": "Parallel",
+      "End": true,
+      "Branches": [
+        {
+          "StartAt": "ResultsDynamo",
+          "States": {
+            "ResultsDynamo": {
+              "Type": "Task",
+              "Resource": "${lambdaDynamoArn}",
+              "Parameters": {
+                "comprehendResults_ddb.$": "$.comprehendResults_ddb"
+              },
+              "End": true
+            }
+          }
+        },
+        {
+          "StartAt": "ResultsS3",
+          "States": {
+            "ResultsS3": {
+              "Type": "Task",
+              "Resource": "${lambdaS3RArn}",
+              "Parameters": {
+                "comprehendResults_s3.$": "$.comprehendResults_s3",
+                "transcriptionid.$": "$.transcriptionid"
+              },
+              "End": true
+            }
+          }
+        }
+      ]
+    }
+  }
+}
