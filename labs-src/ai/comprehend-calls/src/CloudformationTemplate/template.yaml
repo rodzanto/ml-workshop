@@ -84,7 +84,7 @@ Resources:
                        } ]
       }
       ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/AWSLambdaFull_Access
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
       RoleName: !Sub "${InputS3BucketName}-custom-role"
 
