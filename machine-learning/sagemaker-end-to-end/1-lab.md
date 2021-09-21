@@ -45,8 +45,9 @@ Now that your SageMaker Studio is open, you will get the notebook that we will b
 * In the left menu go to the **"File Browser"** (folder icon at the top-left).
 * Double click the new folder ***"amazon-sagemaker-examples"***
 * Double click the folder ***"end_to_end"***
+* Double click the folder ***"fraud_detection"***
 * Double click the first notebook file called ***"0-AutoClaimFraudDetection.ipynb"***. The notebook will open on a new tab.
-* In the select kernel pop-up, select "Python (Data Science)".
+* In the select kernel pop-up, select "Python 3 (Data Science)".
 * Now **read** and follow the cells in the notebook one by one.
     > If you are new to Jupyter notebooks, you can run the notebook document step-by-step (one cell a time) by pressing "shift" + "enter". Note:
     > * While a cell is running it will show an asterix "*" next to it
