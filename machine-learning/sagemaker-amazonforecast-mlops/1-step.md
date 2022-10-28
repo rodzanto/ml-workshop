@@ -15,7 +15,7 @@ Amazon SageMaker Studio is a web-based, integrated development environment (IDE)
 Here are the one-time steps for onboarding to Amazon SageMaker Studio:
 1. Open AWS console and switch to AWS region you would like to use.
 
-    <img src="ml-workshop/machine-learning/sagemaker-amazonforecast-mlops/screen1.png"  width="70%" height="70%">
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen1.png"  width="70%" height="70%">
 
 2. In the search bar, type SageMaker and click on Amazon SageMaker.
 
