@@ -15,47 +15,47 @@ Amazon SageMaker Studio is a web-based, integrated development environment (IDE)
 Here are the one-time steps for onboarding to Amazon SageMaker Studio:
 1. Open AWS console and switch to AWS region you would like to use.
 
-    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen1.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen1.png"  width="70%" height="70%">
 
 2. In the search bar, type SageMaker and click on Amazon SageMaker.
 
-     <img src="screen2.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen2.png"  width="70%" height="70%">
 
 3. Choose **Studio** at the top left of the page.
 
-     <img src="screen3.png"  width="15%" height="15%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen3.png"  width="15%" height="15%">
 
 4. Click on **Launch SageMaker Studio**.
 
-     <img src="screen4.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen4.png"  width="70%" height="70%">
 
 5. Define **Name** as **sagemakeruser** for example.
 
-     <img src="screen5.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen5.png"  width="70%" height="70%">
 
 6. Select **Create a new role** under Execution role.
 
-     <img src="screen6.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen6.png"  width="70%" height="70%">
 
 7. Select **Any S3 bucket** and click **Create Role**.
 
-     <img src="screen7.png"  width="40%" height="40%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen7.png"  width="40%" height="40%">
 
 8. You will see that the role is successfully created.
 
-     <img src="screen8.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen8.png"  width="70%" height="70%">
 
 9. Click **Submit**. The SageMaker Studio environment will stay in Pending state for a few minutes.
 
-     <img src="screen9.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen9.png"  width="70%" height="70%">
 
 10. After a few minutes, the SageMaker Studio Domain will be provisioned. Click on **Studio** under **Launch app** on the right of the screen.
 
-     <img src="screen10.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen10.png"  width="70%" height="70%">
 
 11. The page can take 1 or 2 minutes to load when you access SageMaker Studio for the first time. You will be redirected to a new web tab that looks like this:
 
-     <img src="screen11.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen11.png"  width="70%" height="70%">
 
 
 ## **MLOps Template for building and training**
@@ -70,23 +70,23 @@ Lets first create the model build and model train MLOps project and take a detai
 
 1. In SageMaker Studio, from the left panel menu select **Projects** on the drill down selector.
 
-     <img src="screen14.png"  width="20%" height="20%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen14.png"  width="20%" height="20%">
 
 2. Once you choose Projects, click on Create project as below:
 
-     <img src="screen15.png"  width="20%" height="20%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen15.png"  width="20%" height="20%">
 
 3. On the projects page, you can launch a preconfigured SageMaker MLOps template. For this lab, we will choose the **MLOps template for model building and model training**. Click on the project name and click on the "Select project template" button.
 
-     <img src="screen16.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen16.png"  width="70%" height="70%">
 
 4. Next, give a name to the project, a short description and click on the "Create Project" button.
 
-     <img src="screen17.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen17.png"  width="70%" height="70%">
 
 5. Wait until the project is created. Behing the scenes, a CloudFormation template is deployed including the components shown in following architecture:
 
-     <img src="screen18.png"  width="70%" height="70%">
+     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen18.png"  width="70%" height="70%">
 
 Included in the architecture are the following AWS services and resources that we are going to re use:
 
@@ -102,9 +102,9 @@ All SageMaker resources, such as processing jobs, training jobs and pipelines, a
 
 To modify the sample code from this launched template, we first need to clone the ModelBuild CodeCommit repository to our local SageMaker Studio instance. From the list of projects, choose the one that was just created. On the Repositories tab, you can select the hyperlinks to locally clone the CodeCommit repo.
 
-<img src="screen20.png"  width="70%" height="70%"> 
+<img src="machine-learning/sagemaker-amazonforecast-mlops/screen20.png"  width="70%" height="70%"> 
 
-<img src="screen21.png"  width="30%" height="30%">
+<img src="machine-learning/sagemaker-amazonforecast-mlops/screen21.png"  width="30%" height="30%">
 
 ## **Download training data**
 
@@ -145,7 +145,7 @@ The ModelBuild repository contains the code for preprocessing, training, and eva
 
 1. Navigate to the **pipelines** directory inside the modelbuild directory and rename the **abalone** directory to **amazon_forecast_mlops** (as shown below).
 
-    <img src="screen22.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen22.png"  width="70%" height="70%"> 
 
 2. Now, navigate up one directory level and open the **codebuild-buildspec.yml** file in the modelbuild directory. Modify the run pipeline path from run-pipeline --module-name pipelines.abalone.pipeline to this:
 
@@ -155,7 +155,7 @@ The ModelBuild repository contains the code for preprocessing, training, and eva
 
     This is also shown in the image below - line 15.
 
-    <img src="screen23.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen23.png"  width="70%" height="70%"> 
 
     Save the file.
 
@@ -176,15 +176,15 @@ The ModelBuild repository contains the code for preprocessing, training, and eva
     )
     ```
 
-    <img src="screen23b.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen23b.png"  width="70%" height="70%"> 
 
     Save the file.
 
 6. Right click on the left panel, select **New File** and rename it **train.py**. Open the file and paste the code from the [amazon forecast training script](https://github.com/sgarcesv/aws-amazon-forecast-mlops/blob/d943067cfb37ddda935ec94b6067f7983c8bc4da/seed-code-amazon-forecast-sm-pipeline-mlops/pipelines/amazonforecast/train.py).
 
-    <img src="screen24.png"  width="30%" height="30%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen24.png"  width="30%" height="30%"> 
 
-    <img src="screen24b.png"  width="50%" height="50%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen24b.png"  width="50%" height="50%"> 
 
     Save the file.
 
@@ -210,13 +210,13 @@ The ModelBuild repository contains the code for preprocessing, training, and eva
 
 10. From the AWS Console search for **s3** and and open in a new tab.
 
-    <img src="screen70.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen70.png"  width="70%" height="70%"> 
 
 11. Click on the bucket. For this example **sagemaker-eu-west-1-870401269756**
 
 12. Click on the **amazon-forecast-mlops** and create a folder.
 
-    <img src="screen71.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen71.png"  width="70%" height="70%"> 
 
 13. Name the folder **seedcode** and click on the **Create folder** button.
 
@@ -228,25 +228,25 @@ The AmazonSageMakerServiceCatalogProductsExecutionRole is used to execute the pi
 
 1. From the AWS Console search for **IAM** and and open in a new tab.
 
-    <img src="screen27a.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen27a.png"  width="70%" height="70%"> 
 
 5. On the left panel select **Roles** and paste the Execution role name **AmazonSageMakerServiceCatalogProductsExecutionRole**.
 
-    <img src="screen43.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen43.png"  width="70%" height="70%"> 
 
 6. Click on the **AmazonSageMakerServiceCatalogProductsExecutionRole** Execution role.
 
 7. Click on the **Add Permissions** drill down and select **Attach policies**.
 
-    <img src="screen44.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen44.png"  width="70%" height="70%"> 
 
 8. Search for **AmazonForecastFullAccess**, select the policy and click on the **Attach policies** button.
 
-    <img src="screen45.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen45.png"  width="70%" height="70%"> 
 
 9. We will also need to allow the Amazon Forecast Service to assume the role. Click on the **Trust relationships** tab.
 
-    <img src="screen46.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen46.png"  width="70%" height="70%"> 
 
 10. Click on **Edit trust policy** and replace with the following policy.
 
@@ -278,67 +278,67 @@ Committing these changes to the CodeCommit repository (easily done on the Studio
     
     * Stage changes.
 
-        <img src="screen31.png"  width="30%" height="30%"> 
+        <img src="machine-learning/sagemaker-amazonforecast-mlops/screen31.png"  width="30%" height="30%"> 
     
     * Stage untracked changes.
 
-        <img src="screen32.png"  width="30%" height="30%"> 
+        <img src="machine-learning/sagemaker-amazonforecast-mlops/screen32.png"  width="30%" height="30%"> 
 
         >NOTE: Do not add the zip file created previously. If added, remove with the (-) symbol beside the file name. We don't want the sip file to be pushed into the repository.
      
     * Commit the changes by providing a Summary, your Name and an email address.
 
-        <img src="screen33.png"  width="30%" height="30%"> 
+        <img src="machine-learning/sagemaker-amazonforecast-mlops/screen33.png"  width="30%" height="30%"> 
 
     * Push the changes.
 
-        <img src="screen34.png"  width="30%" height="30%"> 
+        <img src="machine-learning/sagemaker-amazonforecast-mlops/screen34.png"  width="30%" height="30%"> 
 
 2. From the AWS Console search for **CodePipeline** and open in a new tab. 
 
-    <img src="screen35.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen35.png"  width="70%" height="70%"> 
 
 3. Click on the **sagemaker-ServiceCatalogMLOpsAmzForecast-p-*-modelbuild** pipeline.
 
-    <img src="screen36.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen36.png"  width="70%" height="70%"> 
 
 4. Review the pipeline is runnning.
 
-    <img src="screen37.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen37.png"  width="70%" height="70%"> 
 
 5. Navigate back to the project in SageMaker Studio, select the Pipelines section and double click the MLOps pipeline with the name given when creating the project.
 
-    <img src="screen19.png"  width="20%" height="20%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen19.png"  width="20%" height="20%"> 
 
 6. Wait a few seconds for the SageMaker Pipeline to start running. If you double click on the **Executing** pipeline, the steps of the pipeline will be shown in a new tab. You will be able to monitor the step that is currently running.
 
-    <img src="screen38a.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen38a.png"  width="70%" height="70%"> 
 
     <br/>
 
-    <img src="screen38.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen38.png"  width="70%" height="70%"> 
 
 7. Verify the pipeline executes successfully after 30min aprox.
 
-    <img src="screen38b.png"  width="40%" height="40%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen38b.png"  width="40%" height="40%"> 
 
 8. Lets verify the predictor has been created in Amazon Forecast. From the AWS Console search for Amazon Forecast and open in a new tab.
 
-    <img src="screen39a.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen39a.png"  width="70%" height="70%"> 
 
 9. Click on the **View dataset groups** button.
 
-    <img src="screen39.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen39.png"  width="70%" height="70%"> 
 
 10. Click on the **MLOPS_Pipeline_\*** dataset.
 
-    <img src="screen40.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen40.png"  width="70%" height="70%"> 
 
 11. Click on the **View Predictors** button, and review the new predictor.
 
-    <img src="screen41.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen41.png"  width="70%" height="70%"> 
 
-    <img src="screen42.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen42.png"  width="70%" height="70%"> 
 
 ## **Copy the MLOps Project CloudFormation template**
 
@@ -346,15 +346,15 @@ We will now download the template used to deploy the model build and model train
 
 1. From the AWS Console search for **CloudFormation** and and open in a new tab.
 
-    <img src="screen48.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen48.png"  width="70%" height="70%"> 
 
 2. First we will download the CloudFromation project deployed previously with the SageMaker Project. Click on Stacks and select the CloudFormation deployed with the MLOps project.
 
-    <img src="screen49.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen49.png"  width="70%" height="70%"> 
 
 3. Click on the template tab.
 
-    <img src="screen50.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen50.png"  width="70%" height="70%"> 
 
 4. Copy the content and create a file locally in your computer.
 
@@ -390,51 +390,51 @@ We will now download the template used to deploy the model build and model train
 
 Open AWS Service Console through the AWS Console.
 
-<img src="screen53.png"  width="70%" height="70%"> 
+<img src="machine-learning/sagemaker-amazonforecast-mlops/screen53.png"  width="70%" height="70%"> 
 
 To create a custom project template, complete the following steps.
 
 1. Click on **Portfolio** on the left panel.
 
-    <img src="screen54.png"  width="15%" height="15%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen54.png"  width="15%" height="15%"> 
 
 2. Click on the **Create portfolio** button. 
 
-    <img src="screen55.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen55.png"  width="70%" height="70%"> 
 
 3. Add a Name, Owner and Description and click on **Create**.
 
-    <img src="screen56.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen56.png"  width="70%" height="70%"> 
 
 4. Click on the Portfolio you just created and select **Upload new product**.
 
-    <img src="screen57.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen57.png"  width="70%" height="70%"> 
 
 5. Add Name, Description and upload the CloudFormation template created in the previous steps. In our example **amazon_forecast_mlops_cftemplate.yaml**. Scroll down and click on **Create**.
 
-    <img src="screen58.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen58.png"  width="70%" height="70%"> 
 
     >NOTE: If the product does not appear yet, click the refresh button.
 
 6. A launch constraint designates an IAM role that AWS Service Catalog assumes when a user launches a product. Click on the **Constraints** tab and click on **Create constraint** button.
 
-    <img src="screen59.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen59.png"  width="70%" height="70%"> 
 
 7. Select the Product you created in the previous step and Constraint type **Launch**.
 
-    <img src="screen60.png"  width="40%" height="40%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen60.png"  width="40%" height="40%"> 
 
 8. Select the Method **Select IAM role** and IAM role **AmazonSageMakerServiceCatalogProductsLaunchRole**. Click on **Create**.
 
-    <img src="screen61.png"  width="40%" height="40%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen61.png"  width="40%" height="40%"> 
 
 9. Click on the **Groups, roles, and users** tab and click on the **Add groups, roles, users** button.
 
-    <img src="screen63.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen63.png"  width="70%" height="70%"> 
 
 9. On the **Roles** tab, select **AmazonSageMaker-ExecutionRole-\*** and click on **Add Access**.
 
-    <img src="screen65.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen65.png"  width="70%" height="70%"> 
 
 10. To make your project template available in your Organization templates list in Studio, create a tag with the following key and value to the AWS Service Catalog product you created previously. Click on the new product on the **Products** tab, go to the **Tags** tab and add the following key value pairs. 
 
@@ -443,7 +443,7 @@ To create a custom project template, complete the following steps.
 
     <br/>
 
-    <img src="screen66.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen66.png"  width="70%" height="70%"> 
 
 11. Click on the **Add tag** button.
 
@@ -453,7 +453,7 @@ Now we need to give permissions for the role to access Amazon Forecast.
 
 1. On IAM select **Roles** on the left panel, search for **AmazonSageMakerServiceCatalogProductsUseRole** and click on the role.
 
-    <img src="screen69.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen69.png"  width="70%" height="70%"> 
 
 2. Click on the Add permission drill down and select **Attach policy**.
 
@@ -498,11 +498,11 @@ After you complete these steps, SageMaker Studio users in your organization can 
 
 2. Click on **Create project** and choose **Organization templates**, click on the new product and on the **Select project template** button.
 
-    <img src="screen67.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen67.png"  width="70%" height="70%"> 
 
 3. Provide a Name and click on the **Create project** button.
 
-    <img src="screen68.png"  width="70%" height="70%"> 
+    <img src="machine-learning/sagemaker-amazonforecast-mlops/screen68.png"  width="70%" height="70%"> 
 
 Wait a few minutes a you will have a project to start working on your training in Amazon Forecast!!!
 
