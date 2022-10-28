@@ -1,4 +1,4 @@
-# How to create a custom MLOps Project using Amazon Forecast for training
+# How to create a custom SageMaker MLOps Project using Amazon Forecast for training
 
 SageMaker Projects help organizations set up and standardize developer environments for data scientists and CI/CD systems for MLOps engineers. Projects also help organizations set up dependency management, code repository management, build reproducibility, and artifact sharing.
 
@@ -72,7 +72,7 @@ Lets first create the model build and model train MLOps project and take a detai
 
      <img src="machine-learning/sagemaker-amazonforecast-mlops/screen14.png"  width="20%" height="20%">
 
-2. Once you choose Projects, click on Create project as below:
+2. Once you choose Projects, click on **Create project** as below:
 
      <img src="machine-learning/sagemaker-amazonforecast-mlops/screen15.png"  width="20%" height="20%">
 
@@ -80,7 +80,7 @@ Lets first create the model build and model train MLOps project and take a detai
 
      <img src="machine-learning/sagemaker-amazonforecast-mlops/screen16.png"  width="70%" height="70%">
 
-4. Next, give a name to the project, a short description and click on the "Create Project" button.
+4. Next, give a name to the project, a short description and click on the **Create Project** button.
 
      <img src="machine-learning/sagemaker-amazonforecast-mlops/screen17.png"  width="70%" height="70%">
 
@@ -136,7 +136,7 @@ To modify the sample code from this launched template, we first need to clone th
 4. Copy the full URI for the training data. You will need this later on to modify the **input_train** parameter in the pipeline.py script. For this example:
 
     ```
-    s3://sagemaker-eu-west-1-870401269756/amazon-forecast-mlops/data/train.csv
+    s3://<your sagemaker s3 bucket>/amazon-forecast-mlops/data/train.csv
     ```
 
 ## **Modify the seed code on the ModelBuild Repo:**
@@ -172,9 +172,11 @@ The ModelBuild repository contains the code for preprocessing, training, and eva
     ```
     input_train = ParameterString(
         name="TrainData",
-        default_value=f"s3://sagemaker-eu-west-1-870401269756/amazon-forecast-mlops/data/train.csv",
+        default_value=f"s3://<your sagemaker s3 bucket>/amazon-forecast-mlops/data/train.csv",
     )
     ```
+
+    >NOTE: Replace <your sagemaker s3 bucket> with your s3 bucket name
 
     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen23b.png"  width="70%" height="70%"> 
 
@@ -212,7 +214,7 @@ The ModelBuild repository contains the code for preprocessing, training, and eva
 
     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen70.png"  width="70%" height="70%"> 
 
-11. Click on the bucket. For this example **sagemaker-eu-west-1-870401269756**
+11. Click on the bucket. For this example **sagemaker-eu-west-1-\***
 
 12. Click on the **amazon-forecast-mlops** and create a folder.
 
@@ -224,7 +226,7 @@ The ModelBuild repository contains the code for preprocessing, training, and eva
 
 ## **Add Amazon Forecast permissions to the SageMaker Service Catalog execution role**
 
-The AmazonSageMakerServiceCatalogProductsExecutionRole is used to execute the pipeline.
+The **AmazonSageMakerServiceCatalogProductsExecutionRole** is used to execute the pipeline.
 
 1. From the AWS Console search for **IAM** and and open in a new tab.
 
@@ -298,7 +300,7 @@ Committing these changes to the CodeCommit repository (easily done on the Studio
 
     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen35.png"  width="70%" height="70%"> 
 
-3. Click on the **sagemaker-ServiceCatalogMLOpsAmzForecast-p-*-modelbuild** pipeline.
+3. Click on the **sagemaker-ServiceCatalogMLOpsAmzForecast-p-\*-modelbuild** pipeline.
 
     <img src="machine-learning/sagemaker-amazonforecast-mlops/screen36.png"  width="70%" height="70%"> 
 
@@ -513,3 +515,4 @@ In this lab we have walked through how an ML engineer can re utilise one of the 
 As optional steps we could use AWS Lambda to trigger retraining when new training data is loaded into s3. To visualize the forecast predictions we could configure Amazon Athena and Amazon Quicksight to visualize and analyze the results. But that is out of scope for this workshop :)
 
 ![Final Architecture](screen100.png)
+
