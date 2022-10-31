@@ -19,6 +19,8 @@
     - [Serverless AI workshop](machine-learning/serverless-ai/1-step.md)
     - [SageMaker Airflow workshop](machine-learning/sagemaker-airflow/1-step.md)
     - [SageMaker MLOps Custom Project using Amazon Forecast for training](machine-learning/sagemaker-amazonforecast-mlops/1-step.md)
+  - [**Lab #4: Speed up training and inference with AI accelerators**](machine-learning/4-overview.md)
+    - [HuggingFace 🤗 on AWS Tranium](machine-learning/hf-on-trainium/1-step.md)
 
 - Artificial Intelligence
 
