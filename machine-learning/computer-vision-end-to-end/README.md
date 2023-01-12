@@ -53,7 +53,3 @@ Finally you will setup a tracker in Location Service and a geofence, so that if 
 ![architecture diagram](architecture.jpg)
 
 
-
-[![Next](next.jpg)](https://github.com/notariop/cv_demo_workshop/blob/main/1.-Setup%20Raspberry%20Pi/1.step.md)
-
- 
