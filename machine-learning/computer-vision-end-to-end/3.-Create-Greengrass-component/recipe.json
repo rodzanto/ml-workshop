@@ -1,0 +1,77 @@
+{
+    "RecipeFormatVersion": "2020-01-25",
+    "ComponentName": "aws.greengrass.TensorFlowLiteObjectDetection.mod",
+    "ComponentVersion": "2.1.8",
+    "ComponentType": "aws.greengrass.generic",
+    "ComponentDescription": "Sample recipe - Object detection inference using TFlite runtime and ssd(mobilenet v1) Sample recipe - Object detection inference using TFlite runtime and ssd(mobilenet v1) modified to support RaspberryPi 64bit OS Debian and  a usb camera",
+    "ComponentPublisher": "X",
+    "ComponentConfiguration": {
+      "DefaultConfiguration": {
+        "accessControl": {
+          "aws.greengrass.ipc.mqttproxy": {
+            "aws.greengrass.TensorFlowLiteObjectDetection:mqttproxy:1": {
+              "policyDescription": "Allows access to publish via topic ml/tflite/object-detection.",
+              "operations": [
+                "aws.greengrass#PublishToIoTCore"
+              ],
+              "resources": [
+                "ml/tflite/object-detection"
+              ]
+            }
+          }
+        },
+        "ImageName": "objects.jpg",
+        "InferenceInterval": "3600",
+        "PublishResultsOnTopic": "ml/tflite/object-detection",
+        "ModelResourceKey": {
+          "model": "TensorFlowLite-SSD"
+        }
+      }
+    },
+    "ComponentDependencies": {
+      "variant.TensorFlowLite.ObjectDetection.ModelStore": {
+        "VersionRequirement": ">=2.1.6 <2.2.0",
+        "DependencyType": "HARD"
+      },
+      "variant.TensorFlowLite": {
+        "VersionRequirement": ">=2.5.9 <2.6.0",
+        "DependencyType": "HARD"
+      },
+      "aws.greengrass.Nucleus": {
+        "VersionRequirement": ">=2.0.0 <2.10.0",
+        "DependencyType": "SOFT"
+      }
+    },
+    "Manifests": [
+      
+      
+      {
+        "Platform": {
+          "os": "linux",
+          "architecture": "aarch64"
+        },
+        "Lifecycle": {
+          "setEnv": {
+            "TFLITE_OD_MODEL_DIR": "{variant.TensorFlowLite.ObjectDetection.ModelStore:artifacts:decompressedPath}/{configuration:/ModelResourceKey/model}/",
+            "DEFAULT_TFLITE_OD_IMAGE_DIR": "{artifacts:decompressedPath}/object_detection/sample_images/"
+          },
+          "run": {
+            "RequiresPrivilege": "true",
+            "script": "\n                                    . {variant.TensorFlowLite:configuration:/MLRootPath}/greengrass_ml_tflite_venv/bin/activate\n                                    TVM_TENSORRT_CACHE_DIR=/tmp python3 {artifacts:decompressedPath}/object_detection/inference.py"
+          }
+        },
+        "Artifacts": [
+          {
+            "Uri": "s3://[BUCKET_NAME]/object_detection.zip",
+            
+            "Unarchive": "ZIP",
+            "Permission": {
+              "Read": "OWNER",
+              "Execute": "NONE"
+            }
+          }
+        ]
+      }
+    ],
+    "Lifecycle": {}
+  }
