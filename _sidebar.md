@@ -29,6 +29,7 @@
     - [Deploy and test an IoT Greengrass component](machine-learning/computer-vision-end-to-end/4.-Deploy-to-the-edge-and-see-it-in-action/4-step.md)
     - [Setup a geofence with AWS Location Service](machine-learning/computer-vision-end-to-end/5.-Setup-a-geofence/5.-step.md)
 
+
 - Artificial Intelligence
 
   - [**Lab #2: Explore the AWS Artificial Intelligence Services**](artificial-intelligence/2-overview.md)
