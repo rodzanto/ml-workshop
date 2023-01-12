@@ -24,7 +24,7 @@
 
   - [**Lab #5: Computer Vision at the Edge End to End**](machine-learning/5-overview.md)
     - [End to End Overview](machine-learning/computer-vision-end-to-end/README.md)
-    - [Computer Vision with IoT Greengrass](machine-learning/computer-vision-end-to-end/2.-IoTGreengrassCoresoftware/2.1.-step.md)
+    - [Computer Vision with IoT Greengrass](machine-learning/computer-vision-end-to-end/2.-IoT-Greengrass-Core-software/2.1.-step.md)
     - [Create a new IoT Greengrass TensorFlow component](machine-learning/computer-vision-end-to-end/3.-Create-Greengrass-component/3.-step.md)
     - [Deploy and test an IoT Greengrass component](machine-learning/computer-vision-end-to-end/4.-Deploy-to-the-edge-and-see-it-in-action/4-step.md)
     - [Setup a geofence with AWS Location Service](machine-learning/computer-vision-end-to-end/5.-Setup-a-geofence/5.-step.md)

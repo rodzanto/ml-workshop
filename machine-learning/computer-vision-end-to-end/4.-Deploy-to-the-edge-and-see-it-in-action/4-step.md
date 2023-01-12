@@ -38,7 +38,7 @@ We will set **two configuration parameters** as shown in the picture below:
 
 *UseCamera*: String value that defines whether to use images from a camera connected to the Greengrass core device. Supported values are true and false. We should set it up as "true".
 
-Finally we select Next in the following screens and then Deploy.
+Finally we select **Next** in the following screens and then **Deploy**.
 
 
 A succesfull deployment will show the **four components of the deployment** as shown below. 
