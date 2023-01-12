@@ -71,4 +71,3 @@ As you can see from the capture a "person" has been detected.
 The position of the person as reported in the MQTT message corresponds with the GPS caputre of the mobile device (see the picture)
 >Note *The cell phone used to take the picture is also detected*
 
-[![Next](../next.jpg)](https://github.com/notariop/cv_demo_workshop/blob/main/5.-%20Setup%20a%20geofence%20and%20test%20again/5.-step.md)
