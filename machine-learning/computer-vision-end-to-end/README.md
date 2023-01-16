@@ -30,7 +30,7 @@ You'll start pairing your Raspberry Pi with a mobile phone. We will deploy a GPS
 
 2. **AWS IoT Greengrass and computer vision model**
 
-Then you will install the AWS IoT Greengrass Core software to the Raspberry Pi. Next you will deploy a public TensorFlow computer vision component in your Raspberry Pi.
+Then you will install the AWS IoT Greengrass Core software to the Raspberry Pi. Next you will deploy a public TensorFlow computer vision component in your Raspberry Pi.The model is a pre-trained Single Shot Detection (SSD) MobileNet 1.0.
 
 3. **Create a new AWS IoT Greengrass component**
 
