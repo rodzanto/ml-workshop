@@ -42,6 +42,6 @@
     - [Amazon Polly Builder](artificial-intelligence/amazon-polly-builder/README.md)
     - [Comprehend Calls](artificial-intelligence/comprehend-calls/README.md)
     - [Translate Sentiments](artificial-intelligence/translate-sentiments/README.md)
-
+    - [Decode QR/barcode](artificial-intelligence/Barcode-QR-Decoder-Lambda/README.md)
 
 - [Changelog](changelog.md)
