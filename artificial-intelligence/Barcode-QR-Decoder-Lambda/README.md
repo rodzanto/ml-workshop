@@ -1,4 +1,4 @@
-![Banner](src/img/banner.png)
+![Banner](img/banner.png)
 Easily decode barcodes and QR codes at scale with AWS Lambda!
 With this Lambda Function you will be able to add decoding features to your applications at scale!
 
@@ -14,50 +14,50 @@ With this Lambda Function you will be able to add decoding features to your appl
 #### Step 1, Generate code artifacts and dependencies
 * Access AWS CloudShell, a browser-based shell inside the AWS console. You can click the terminal icon next to the search bar or looking for _Cloudshell_ in the service search bar.
 
-![CloudShell](src/img/step-0_1.png)
+![CloudShell](img/step-0_1.png)
 * Once CloudShell has initiallized, clone this repo 
    * `git clone https://github.com/aws-samples/Barcode-QR-Decoder-Lambda.git`
 * Run the `setup.sh` script in order to generate the needed lambda layers and code package. You must specify the bucket where you want to upload this artifacts replacing <BUCKET_NAME> with the S3 bucket name.
    * `sh Barcode-QR-Decoder-Lambda/src/code/setup.sh -b <BUCKET_NAME>`
 * Once the script finishes, you should see 3 new files in your S3 bucket under `BarcodeQRDecoder/qr-reader/assets/` path, the two Lambda layers containing the libraries needed (Pillow and Pyzbar) and the lambda code packaged in a .zip file
 
-![CloudShell](src/img/step-0_2.png)
+![CloudShell](img/step-0_2.png)
 
 #### Step 1, Deploy your Lambda function
 * [Launch](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://aiml-samples-demos.s3.eu-west-1.amazonaws.com/qr-reader/assets/template.yaml&stackName=BarcodeQRDecoder) the following **AWS CloudFormation Template** in your account (The link will automatically open the AWS CloudFormation console). **THIS TEMPLATE IS TO BE DEPLOYED IN EU-WEST-1 REGION ONLY**
 * Specify in the template parameter the same name of the S3 bucket as before 
 
-![Cloudformation](src/img/step-1.png)
+![Cloudformation](img/step-1.png)
 * Check the AWS CloudFormation acknowledgements and click Create stack.
 
-![Cloudformation](src/img/step-1_1.png)
+![Cloudformation](img/step-1_1.png)
 * Wait until the stack goes into the **CREATE_COMPLETE** status.
 
 * You can now head over to the AWS Lambda service and will find your new function!
 
-![LambdaConsole](src/img/step-2.png)
+![LambdaConsole](img/step-2.png)
 #### Step 2, Configure your Amazon S3 Trigger event
 * Once you open your new Lambda Function, head over to the **Function overview** panel and click on **Add trigger**.
 
-![Add Event](src/img/step-3.png)  
+![Add Event](img/step-3.png)  
 
 * Select **S3** from the trigger list.
 * Select the S3 bucket where you will be uploading your files.
 * Select **All object create events**.
 * If you want to add prefix to specify a folder you can also add it.
 
-![Event Info](src/img/step-4.png)  
+![Event Info](img/step-4.png)  
 
 * Once you have configured all parameters, **Add** the trigger. 
 
-![Event Completed](src/img/step-5.png) 
+![Event Completed](img/step-5.png) 
 
 #### Step 3, Try out your Lambda Function
 You are now ready to add Barcode/QR code decoding capabilities to your applications at scale!
 Simply add an image with a QR to your S3 bucket folder you specified earlier. 
 You can see the logs your lambda function returns in the CloudWatch Logs console.
 
-![Test](src/img/step-6.png)
+![Test](img/step-6.png)
 
 ### Deploying in Additional Regions
 This example and the templates provided are to be deployed in **eu-west-1** region. If you wish to create your Lambda Function in a different region you have the function code available in the src/code folder.
