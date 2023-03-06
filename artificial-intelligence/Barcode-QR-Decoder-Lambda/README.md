@@ -72,14 +72,13 @@ You will have to create a role for the AWS Lambda function to be able to interac
 * Create a new role with basic Lambda permissions
 * Once the function has created, head over to the Code Panel.
 * Select **Upload From** and choose **.zip file**.
-* Upload the following [lambda_function.zip file](src/code/lambda_function.zip).
-
+* Upload the following lambda_function.zip file
 **Create and add Lambda Layers**
 * Inside the AWS Lambda service, head to Layers --> Create Layer
-    * Create a new layer uploading the following [Pillow_Layer.zip](src/layers/Pillow_Layer.zip), and select x86_64 as compatible architecture and Python 3.7 as compatible runtime.
+    * Create a new layer uploading the Pillow_Layer.zip, and select x86_64 as compatible architecture and Python 3.7 as compatible runtime.
     * Return to your function and in your layers section, select **Add Layer**
     * Select your layer which will be available at the Custom AWS layers dropdown.
-* Repeat the same process for the Pyzbar Layer. [Pyzbar_Layer.zip](src/layers/Pyzbar_Layer.zip)
+* Repeat the same process for the Pyzbar Layer. 
 
 **Enable Amazon S3 Access**
 * Head over to IAM and add permissions to your associated role to access your S3 Bucket.
