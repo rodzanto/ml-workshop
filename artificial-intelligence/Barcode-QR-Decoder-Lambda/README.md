@@ -1,4 +1,5 @@
 ![Banner](img/banner.png)
+
 Easily decode barcodes and QR codes at scale with AWS Lambda!
 With this Lambda Function you will be able to add decoding features to your applications at scale!
 
